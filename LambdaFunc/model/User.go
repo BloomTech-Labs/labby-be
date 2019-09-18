@@ -4,7 +4,6 @@ import "github.com/jinzhu/gorm"
 
 type User struct {
 	gorm.Model
-	ID uint
 	Email string `json:"email"`
 	SlackID string `json:"slack"`
 	GithubID string `json:"github"`
