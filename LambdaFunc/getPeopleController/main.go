@@ -15,9 +15,7 @@ type GetPeopleRequest struct {
 	GithubID  string `json:"github"`
 	Firstname string `json:"firstname"`
 	Lastname  string `json:"lastname"`
-	Cohort    string `json:"cohort"`
-	Track     string `json:"track"`
-	Backend   string `json:"backend"`
+	Program     string `json:"program"`
 	Timezone  string `json:"timezone"`
 }
 
@@ -45,14 +43,8 @@ func HandleRequest(ctx context.Context, request GetPeopleRequest) ([]model.Peopl
 	if request.Lastname != "" {
 		account.Lastname = request.Lastname
 	}
-	if request.Cohort != "" {
-		account.Cohort = request.Cohort
-	}
-	if request.Track != "" {
-		account.Track = request.Track
-	}
-	if request.Backend != "" {
-		account.Backend = request.Backend
+	if request.Program != "" {
+		account.Program = request.Program
 	}
 	if request.Timezone != "" {
 		account.Timezone = request.Timezone

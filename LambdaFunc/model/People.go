@@ -9,8 +9,6 @@ type People struct {
 	GithubID  string `json:"github"`
 	Firstname string `json:"firstname"`
 	Lastname  string `json:"lastname"`
-	Cohort    string `json:"cohort"`
-	Track     string `json:"track"`
-	Backend   string `json:"backend"`
+	Program   string `json:"program"`
 	Timezone  string `json:"timezone"`
 }

@@ -12,7 +12,7 @@ type GetRoleRequest struct {
 	Name string `json:"name"`
 }
 
-func HandleRequest(ctx context.Context, request GetUserRequest) ([]model.Role, error) {
+func HandleRequest(ctx context.Context, request GetRoleRequest) ([]model.Role, error) {
 	postgresConnector := db.PostgresConnector{}
 	db2, err := postgresConnector.GetConnection()
 	defer db2.Close()
