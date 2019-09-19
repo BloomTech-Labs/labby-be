@@ -15,7 +15,7 @@ type GetPeopleRequest struct {
 	GithubID  string `json:"github"`
 	Firstname string `json:"firstname"`
 	Lastname  string `json:"lastname"`
-	Program     string `json:"program"`
+	Program   string `json:"program"`
 	Timezone  string `json:"timezone"`
 }
 

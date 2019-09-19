@@ -29,9 +29,9 @@ func HandleRequest(ctx context.Context, request GetProductRolesRequest) ([]model
 	if request.RoleID != "" {
 		account.RoleID = request.RoleID
 	}
-	var ProductRoles []model.ProductRoles
-	db2.Where(account).Find(&ProductRoles)
-	return ProductRoles, nil
+	var productRoles []model.ProductRoles
+	db2.Where(account).Find(&productRoles)
+	return productRoles, nil
 }
 func main() {
 	lambda.Start(HandleRequest)

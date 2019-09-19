@@ -2,13 +2,14 @@ package main
 
 import (
 	"context"
-	"github.com/aws/aws-lambda-go/lambda"
+
 	"../db"
 	"../model"
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 type GetProjectRolesRequest struct {
-	ID uint
+	ID        uint
 	PersonID  string `json:"person"`
 	RoleID    string `json:"role"`
 	ProductID string `json:"product"`
