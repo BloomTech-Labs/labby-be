@@ -11,7 +11,7 @@ type GetProjectRolesRequest struct {
 	ID uint
 	PersonID  string `json:"person"`
 	RoleID    string `json:"role"`
-	ProductID string `json:product`
+	ProductID string `json:"product"`
 }
 
 func HandleRequest(ctx context.Context, request GetProjectRolesRequest) ([]model.ProjectRoles, error) {
@@ -24,7 +24,7 @@ func HandleRequest(ctx context.Context, request GetProjectRolesRequest) ([]model
 	db2.AutoMigrate(&model.ProjectRoles{})
 	account := &model.ProjectRoles{}
 	if request.PersonID != "" {
-		account.PersonID = request.PersonIDRoleID
+		account.PersonID = request.PersonID
 	}
 	if request.RoleID != "" {
 		account.RoleID = request.RoleID

@@ -8,8 +8,10 @@ import (
 )
 
 type GetRoleRequest struct {
-	ID       uint
+	ID   uint
 	Name string `json:"name"`
+	Type string `json:"type"`
+	
 }
 
 func HandleRequest(ctx context.Context, request GetRoleRequest) ([]model.Role, error) {
@@ -21,9 +23,15 @@ func HandleRequest(ctx context.Context, request GetRoleRequest) ([]model.Role, e
 	}
 	db2.AutoMigrate(&model.Role{})
 	account := &model.Role{}
+
 	if request.Name != "" {
 		account.Name = request.Name
 	}
+	if request.Type !=""{
+		account.Type = request.Type
+	}
+
+
 	var roles []model.Role
 	db2.Where(account).Find(&roles)
 	return roles, nil

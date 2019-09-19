@@ -5,8 +5,9 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"../db"
 	"../model"
+	"github.com/jinzhu/gorm"
 )
-
+//creating people fields
 type CreatePeopleRequest struct {
 	ID uint
 	Email string `json:"email"`
@@ -16,6 +17,27 @@ type CreatePeopleRequest struct {
 	Lastname  string `json:"lastname"`
 	Program string `json:"program"`
 	Timezone string `json:"timezone"`
+}
+//creating project roles table
+type ProjectRoles struct { 
+	gorm.Model 
+	PersonID int `gorm:"primary_key"`
+	ProjectID uint `gorm:"ForeignKey:projectid"`
+	 RoleID uint `gorm:"ForeignKey:roleid"`
+}
+//creating product roles table
+type ProductRoles struct { 
+	gorm.Model 
+	PersonID int `gorm:"primary_key"`
+	ProductID uint `gorm:"ForeignKey:productid"`
+	 RoleID uint `gorm:"ForeignKey:roleid"`
+}
+
+//creating lambda roles table
+type LambdaRoles struct { 
+	gorm.Model 
+	PersonID int `gorm:"primary_key"`
+	 RoleID uint `gorm:"ForeignKey:roleid"`
 }
 
 func HandleRequest(ctx context.Context, request CreatePeopleRequest) (model.People, error) {

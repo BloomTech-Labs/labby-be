@@ -1,10 +1,10 @@
-package model
+// package model
 
-import "github.com/jinzhu/gorm"
+// import "github.com/jinzhu/gorm"
 
-type ProjectRoles struct {
-	gorm.Model
-	PersonID  string `json:"person"`
-	RoleID    string `json:"role"`
-	ProductID string `json:product`
-}
+// type ProjectRoles struct {
+// 	gorm.Model
+// 	PersonID  int `json:"personid"`
+// 	RoleID    int `json:"roleid"`
+// 	ProductID int `json:"productid"`
+// }
