@@ -23,7 +23,7 @@ service: labbydb
 provider:
   name: aws
   runtime: nodejs10.x
-  cfnRole: arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student
+  role: arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student
   
 
 # you can overwrite defaults here
