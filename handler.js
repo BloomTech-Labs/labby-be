@@ -4,8 +4,12 @@ const db = require('./config/knex_config');
 module.exports.hello = async event => {
   //code that will access database
   //configure db object in js with my credentials
-  await db.migrate.latest()
-  await db.seeds.run()
+  try{
+    await db.migrate.latest()
+    await db.seed.run()
+  }catch(err){
+    console.log("error",err)
+  }
   return {
     statusCode: 200,
     body: JSON.stringify(

@@ -1,15 +1,14 @@
 // Update with your config settings.
-
-const localPg = {
-  host: "localhost",
-  database: "users",
-  user: "labby",
-  password: "labby"
-};
+const pgSettings = {
+  host: "labbydatabase.cu5flbcmyfuw.us-east-1.rds.amazonaws.com",
+  user: "postgres",
+  password: "password",
+  port: 5432,
+  database: "postgres"}; 
 
 const productionDbConnection =
   //process.env.HEROKU_POSTGRESQL_AMBER_URL || localPg;
-  process.env.DATABASE_URL || localPg;
+  process.env.DATABASE_URL || pgSettings;
 
 module.exports = {
   development: {
@@ -44,7 +43,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: productionDbConnection,
+    connection: pgSettings,
     pool: {
       min: 2,
       max: 10

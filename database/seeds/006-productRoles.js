@@ -34,7 +34,7 @@ exports.seed = function(knex) {
         { id: 27, product_id: 27, person_id: 27, role_id: 7 },
         { id: 28, product_id: 28, person_id: 28, role_id: 8 },
         { id: 29, product_id: 29, person_id: 29, role_id: 9 },
-        { id: 30, product_id: 30, person_id: 30, role_id: 0 },
+        { id: 30, product_id: 30, person_id: 30, role_id: 3 },
         { id: 31, product_id: 31, person_id: 31, role_id: 1 },
         { id: 32, product_id: 32, person_id: 32, role_id: 2 },
         { id: 33, product_id: 33, person_id: 33, role_id: 3 },

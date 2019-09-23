@@ -50,7 +50,7 @@ exports.seed = function(knex) {
         { id: 43, person_id: 43, role_id: 3, project_id: 43 },
         { id: 44, person_id: 44, role_id: 4, project_id: 44 },
         { id: 45, person_id: 45, role_id: 5, project_id: 45 },
-        { id: 46, person_id: 46, role_id: 46, project_id: 46 },
+        { id: 46, person_id: 46, role_id: 6, project_id: 46 },
         { id: 47, person_id: 47, role_id: 7, project_id: 47 },
         { id: 48, person_id: 48, role_id: 8, project_id: 48 },
         { id: 49, person_id: 49, role_id: 9, project_id: 49 },
