@@ -1,10 +1,10 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex("lambdaRoles")
+  return knex("lambda_roles")
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex("lambdaRoles").insert([
+      return knex("lambda_roles").insert([
         { id: 1, person_id: 1, role_id: 1 },
         { id: 2, person_id: 2, role_id: 2 },
         { id: 3, person_id: 3, role_id: 3 },
