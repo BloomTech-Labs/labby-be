@@ -1,6 +1,9 @@
 'use strict';
+const db = require('./db_connect');
 
 module.exports.hello = async event => {
+  //code that will access database
+  //configure db object in js with my credentials
   return {
     statusCode: 200,
     body: JSON.stringify(
