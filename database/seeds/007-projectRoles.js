@@ -1,0 +1,60 @@
+exports.seed = function(knex) {
+  // Deletes ALL existing entries
+  return knex("projectRoles")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("projectRoles").insert([
+        { id: 1, person_id: 1, role_id: 1, project_id: 1 },
+        { id: 2, person_id: 2, role_id: 2, project_id: 2 },
+        { id: 3, person_id: 3, role_id: 3, project_id: 3 },
+        { id: 4, person_id: 4, role_id: 4, project_id: 4 },
+        { id: 5, person_id: 5, role_id: 5, project_id: 5 },
+        { id: 6, person_id: 6, role_id: 6, project_id: 6 },
+        { id: 7, person_id: 7, role_id: 7, project_id: 7 },
+        { id: 8, person_id: 8, role_id: 8, project_id: 8 },
+        { id: 9, person_id: 9, role_id: 9, project_id: 9 },
+        { id: 10, person_id: 10, role_id: 10, project_id: 10 },
+        { id: 11, person_id: 11, role_id: 1, project_id: 11 },
+        { id: 12, person_id: 12, role_id: 2, project_id: 12 },
+        { id: 13, person_id: 13, role_id: 3, project_id: 13 },
+        { id: 14, person_id: 14, role_id: 4, project_id: 14 },
+        { id: 15, person_id: 15, role_id: 5, project_id: 15 },
+        { id: 16, person_id: 16, role_id: 6, project_id: 16 },
+        { id: 17, person_id: 17, role_id: 7, project_id: 17 },
+        { id: 18, person_id: 18, role_id: 8, project_id: 18 },
+        { id: 19, person_id: 19, role_id: 9, project_id: 19 },
+        { id: 20, person_id: 20, role_id: 2, project_id: 20 },
+        { id: 21, person_id: 21, role_id: 1, project_id: 21 },
+        { id: 22, person_id: 22, role_id: 2, project_id: 22 },
+        { id: 23, person_id: 23, role_id: 3, project_id: 23 },
+        { id: 24, person_id: 24, role_id: 4, project_id: 24 },
+        { id: 25, person_id: 25, role_id: 5, project_id: 25 },
+        { id: 26, person_id: 26, role_id: 6, project_id: 26 },
+        { id: 27, person_id: 27, role_id: 7, project_id: 27 },
+        { id: 28, person_id: 28, role_id: 8, project_id: 28 },
+        { id: 29, person_id: 29, role_id: 9, project_id: 29 },
+        { id: 30, person_id: 30, role_id: 3, project_id: 30 },
+        { id: 31, person_id: 31, role_id: 1, project_id: 31 },
+        { id: 32, person_id: 32, role_id: 2, project_id: 32 },
+        { id: 33, person_id: 33, role_id: 3, project_id: 33 },
+        { id: 34, person_id: 34, role_id: 4, project_id: 34 },
+        { id: 35, person_id: 35, role_id: 5, project_id: 35 },
+        { id: 36, person_id: 36, role_id: 6, project_id: 36 },
+        { id: 37, person_id: 37, role_id: 7, project_id: 37 },
+        { id: 38, person_id: 38, role_id: 8, project_id: 38 },
+        { id: 39, person_id: 39, role_id: 9, project_id: 39 },
+        { id: 40, person_id: 40, role_id: 4, project_id: 40 },
+        { id: 41, person_id: 41, role_id: 1, project_id: 41 },
+        { id: 42, person_id: 42, role_id: 2, project_id: 42 },
+        { id: 43, person_id: 43, role_id: 3, project_id: 43 },
+        { id: 44, person_id: 44, role_id: 4, project_id: 44 },
+        { id: 45, person_id: 45, role_id: 5, project_id: 45 },
+        { id: 46, person_id: 46, role_id: 46, project_id: 46 },
+        { id: 47, person_id: 47, role_id: 7, project_id: 47 },
+        { id: 48, person_id: 48, role_id: 8, project_id: 48 },
+        { id: 49, person_id: 49, role_id: 9, project_id: 49 },
+        { id: 50, person_id: 50, role_id: 5, project_id: 50 }
+      ]);
+    });
+};
