@@ -3,7 +3,7 @@ exports.up = function(knex) {
     .createTable("people_groups", people_groups => {
       people_groups.increments();
       people_groups
-        .string("people_groups", 255)
+        .string("name", 255)
         .notNullable()
         .unique();
     })
@@ -57,7 +57,7 @@ exports.up = function(knex) {
     .createTable("project_groups", project_groups => {
       project_groups.increments();
       project_groups
-        .string("project_groups", 255)
+        .string("name", 255)
         .notNullable()
         .unique();
     })
