@@ -26,17 +26,7 @@ exports.getAllProjects = async (event, context, callback) => {
 
       
       knex.client.destroy();
-      return {
-        statusCode: 200,
-        body: JSON.stringify(
-          {
-            message: 'db get all projects',
-            projects
-          },
-          null,
-          2
-        ),
-    };
+      return callback(null, { statusCode: 200, body: JSON.stringify(projects)})
       // return callback(null, projects);
       // define projects to be used later 
     })
