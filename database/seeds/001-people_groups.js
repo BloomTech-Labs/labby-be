@@ -5,8 +5,8 @@ exports.seed = function(knex) {
     .then(function() {
       // Inserts seed entries
       return knex("people_groups").insert([
-        { id: 1, name: "Wavexv  d albatross" },
-        { id: 2, name: "Kor vvfdbi bustard" },
+        { name: "Wavexv  d albatross" },
+        { name: "Kor vvfdbi bustard" },
         { id: 3, name: "Quailfdfgrg, gambel's" },
         { id: 4, name: "Black anwewed white colobus" },
         { id: 5, name: "Africafgfdn snake (unidentified)" },

@@ -1,7 +1,11 @@
+const generateUniqueId = require("generate-unique-id");
+
+const id = generateUniqueId({ length: 9 });
+
 exports.up = function(knex) {
   return knex.schema
     .createTable("people_groups", people_groups => {
-      people_groups.increments();
+      people_groups.increments() + 0000000;
       people_groups
         .string("name", 255)
         .notNullable()
