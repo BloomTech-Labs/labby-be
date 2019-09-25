@@ -36,7 +36,7 @@ exports.seed = function(knex) {
         {
           id: 5,
           product_id: 5,
-          name: "Pickle Rick",
+          name: "dfasf",
           start: "12/30/2017",
           end: "12/26/2018"
         },
@@ -64,7 +64,7 @@ exports.seed = function(knex) {
         {
           id: 9,
           product_id: 9,
-          name: "Pickle Rick 2",
+          name: "ewfrwaefear",
           start: "02/16/2018",
           end: "02/19/2019"
         }
