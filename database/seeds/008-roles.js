@@ -5,16 +5,15 @@ exports.seed = function(knex) {
     .then(function() {
       // Inserts seed entries
       return knex("roles").insert([
-        { id: 1, name: "Axe", type: "Yadel" },
-        { id: 2, name: "COLGATE Great Regular Flavor", type: "Edgeclub" },
-        { id: 3, name: "Oxygen", type: "Yoveo" },
-        { id: 4, name: "Olanzapine", type: "Voonyx" },
-        { id: 5, name: "Desmopressin Acetate", type: "Babbleopia" },
-        { id: 6, name: "Molds - Mold Mix 4", type: "Skyble" },
-        { id: 7, name: "Vicodin", type: "Zoozzy" },
-        { id: 8, name: "Hypercalm - Mental Focus", type: "Flipstorm" },
-        { id: 9, name: "Telmisartan and Amlodipine", type: "Jatri" },
-        { id: 10, name: "LEADER TRIPLE ANTIBIOTIC", type: "Agimba" }
+        { id: 1, name: "engineering_manager", type: "product" },
+        { id: 2, name: "design_manager", type: "product" },
+        { id: 3, name: "product_manager", type: "product" },
+        { id: 4, name: "backend_engineer", type: "project" },
+        { id: 5, name: "data_scientist", type: "project" },
+        { id: 6, name: "frontend_engineer", type: "project" },
+        { id: 7, name: "section_lead", type: "project" },
+        { id: 8, name: "team_lead", type: "project" },
+        { id: 9, name: "ux_designer", type: "project" }
       ]);
     });
 };
