@@ -88,6 +88,7 @@ exports.getAllPeople = async (event, context, callback) => {
   console.log("knex connection: ", knex);
   // get projects
   await knex("people")
+    .select("*")
     .then(people => {
       console.log("received people: ", people);
 
@@ -148,3 +149,26 @@ exports.getRoles = async (event, context, callback) => {
 //   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
 //   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 // };
+
+exports.projectRoles = async (event, context, callback) => {
+  const people = await knex("people").select("people.id");
+
+  const peopleMap = people.map(person => {
+    return { person_id: person.id };
+  });
+
+  await knex("project_roles")
+    .insert(peopleMap)
+    .then(res => {
+      console.log("you beat the SMURFS: ", res.rowCount);
+      knex.client.destroy();
+      return callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(res.rowCount)
+      }).catch(err => {
+        console.log("you got SMURFED!: ", err);
+        knex.client.destroy();
+        return callback(err.message);
+      });
+    });
+};
