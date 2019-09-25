@@ -4,6 +4,7 @@
   "description": "",
   "main": "db_config.js",
   "dependencies": {
+    "generate-unique-id": "^2.0.0",
     "knex": "^0.19.4",
     "knex-cleaner": "^1.3.0",
     "pg": "^7.12.1",
