@@ -20,10 +20,10 @@ service: sorting
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
-provider: 
+provider:
   name: aws
-  runtime: nodejs10.x  
-  role: arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student 
+  runtime: nodejs10.x
+  role: arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student
 
 # you can overwrite defaults here
 #  stage: dev
@@ -58,20 +58,31 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-functions: 
-  getAllPeople:
-    handler: handler.getAllProjects   
-    events:    
-    - http:        
-        path: users
-        method: get
-  
-  postPerson:
+functions:
+  getAllProjects:
+    handler: handler.getAllProjects
+    events:
+      - http:
+          path: getallprojects
+          method: get
+  postProject:
     handler: handler.postProject
     events:
-    - http:
-        path: users/create
-        method: post
+      - http:
+          path: projects/create
+          method: post
+  getAllPeople:
+    handler: handler.getAllPeople
+    events:
+      - http:
+          path: people
+          method: get
+  getRoles:
+    handler: handler.getRoles
+    events:
+      - http:
+          path: roles
+          method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
