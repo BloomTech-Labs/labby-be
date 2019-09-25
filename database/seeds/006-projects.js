@@ -64,7 +64,7 @@ exports.seed = function(knex) {
         {
           id: 9,
           product_id: 9,
-          name: "Mr. Poopy Butthole",
+          name: "Pickle Rick",
           start: "02/16/2018",
           end: "02/19/2019"
         }
