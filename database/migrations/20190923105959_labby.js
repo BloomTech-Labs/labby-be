@@ -98,14 +98,8 @@ exports.up = function(knex) {
     })
     .createTable("roles", roles => {
       roles.increments();
-      roles
-        .string("name", 255)
-        .notNullable()
-        .unique();
-      roles
-        .string("type", 255)
-        .notNullable()
-        .unique();
+      roles.string("name", 255).notNullable();
+      roles.string("type", 255).notNullable();
     })
     .createTable("lambda_roles", lambda_roles => {
       lambda_roles.increments();
