@@ -4,7 +4,8 @@
   "description": "",
   "main": "handler.js",
   "dependencies": {
-    "knex": "^0.19.4"
+    "knex": "^0.19.4",
+    "pg": "^7.12.1"
   },
   "devDependencies": {},
   "scripts": {
