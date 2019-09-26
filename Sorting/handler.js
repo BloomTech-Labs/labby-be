@@ -157,6 +157,7 @@ exports.projectRoles = async (event, context, callback) => {
     return { person_id: person.id };
   });
 
+
   await knex("project_roles")
     .insert(peopleMap)
     .then(res => {
@@ -172,3 +173,46 @@ exports.projectRoles = async (event, context, callback) => {
       });
     });
 };
+
+const projectRoles = async (event, context, callback) => {
+  const projects = await knex("projects").select("projects.id");
+
+  const projectsMap = projects.map(project => {
+    return { project_id: project.id };                                                                              
+  });
+
+  let projectRoles = await knex("project_roles")
+  let filledProjects = 0;
+
+  await knex("project_roles")
+    .then(res => {
+      projects.forEach(project => {
+      let d = Math.round(projectRoles.length/projectsMap.length)
+      for(let i = 0; i < d ;i++){
+        if(projectRoles[i+filledProjects*d] != null){
+        let current = projectRoles[i+(filledProjects*d)];
+        knex("project_roles").where({person_id: current.person_id}).update({project_id: project.id})
+        if(i == d-1){
+          filledProjects++;
+          console.log(current, filledProjects)
+        }
+        else{
+          console.log(current)
+        }}
+
+
+      }});
+      console.log("you beat the SMURFS: ", res.rowCount);
+      knex.client.destroy();
+      return callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(res.rowCount)
+      }).catch(err => {
+        console.log("you got SMURFED!: ", err);
+        knex.client.destroy();
+        return callback(err.message);
+      });
+    });
+  }
+
+  projectRoles();
