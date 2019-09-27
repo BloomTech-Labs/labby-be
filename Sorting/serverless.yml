@@ -83,6 +83,12 @@ functions:
       - http:
           path: roles
           method: get
+  populatePeople:
+    handler: handler.populatePeople
+    events:
+      - http:
+          path: populatepeople
+          method: get
   projectRoles:
     handler: handler.projectRoles
     events:
