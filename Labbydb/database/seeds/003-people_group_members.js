@@ -1,0 +1,60 @@
+exports.seed = function(knex) {
+  // Deletes ALL existing entries
+  return knex("people_group_members")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("people_group_members").insert([
+        { person_id: 1, people_group_id: 1 },
+        { person_id: 2, people_group_id: 2 },
+        { person_id: 3, people_group_id: 3 },
+        { person_id: 4, people_group_id: 4 },
+        { person_id: 5, people_group_id: 5 },
+        { person_id: 6, people_group_id: 6 },
+        { person_id: 7, people_group_id: 7 },
+        { person_id: 8, people_group_id: 8 },
+        { person_id: 9, people_group_id: 9 },
+        { person_id: 10, people_group_id: 10 },
+        { person_id: 11, people_group_id: 11 },
+        { person_id: 12, people_group_id: 12 },
+        { person_id: 13, people_group_id: 13 },
+        { person_id: 14, people_group_id: 14 },
+        { person_id: 15, people_group_id: 15 },
+        { person_id: 16, people_group_id: 16 },
+        { person_id: 17, people_group_id: 17 },
+        { person_id: 18, people_group_id: 18 },
+        { person_id: 19, people_group_id: 19 },
+        { person_id: 20, people_group_id: 20 },
+        { person_id: 21, people_group_id: 21 },
+        { person_id: 22, people_group_id: 22 },
+        { person_id: 23, people_group_id: 23 },
+        { person_id: 24, people_group_id: 24 },
+        { person_id: 25, people_group_id: 25 },
+        { person_id: 26, people_group_id: 26 },
+        { person_id: 27, people_group_id: 27 },
+        { person_id: 28, people_group_id: 28 },
+        { person_id: 29, people_group_id: 29 },
+        { person_id: 30, people_group_id: 30 },
+        { person_id: 31, people_group_id: 31 },
+        { person_id: 32, people_group_id: 32 },
+        { person_id: 33, people_group_id: 33 },
+        { person_id: 34, people_group_id: 34 },
+        { person_id: 35, people_group_id: 35 },
+        { person_id: 36, people_group_id: 36 },
+        { person_id: 37, people_group_id: 37 },
+        { person_id: 38, people_group_id: 38 },
+        { person_id: 39, people_group_id: 39 },
+        { person_id: 40, people_group_id: 40 },
+        { person_id: 41, people_group_id: 41 },
+        { person_id: 42, people_group_id: 42 },
+        { person_id: 43, people_group_id: 43 },
+        { person_id: 44, people_group_id: 44 },
+        { person_id: 45, people_group_id: 45 },
+        { person_id: 46, people_group_id: 46 },
+        { person_id: 47, people_group_id: 47 },
+        { person_id: 48, people_group_id: 48 },
+        { person_id: 49, people_group_id: 49 },
+        { person_id: 50, people_group_id: 50 }
+      ]);
+    });
+};
