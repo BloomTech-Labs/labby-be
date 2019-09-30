@@ -9,7 +9,7 @@
 # For full config options, check the docs:
 #    docs.serverless.com
 #
-# Happy Coding!
+# Happy Coding!!
 
 service: labbydb
 # app and org for use with dashboard.serverless.com
@@ -24,7 +24,6 @@ provider:
   name: aws
   runtime: nodejs10.x
   role: arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student
-  
 
 # you can overwrite defaults here
 #  stage: dev
@@ -64,9 +63,9 @@ functions:
   hello:
     handler: handler.hello
     events:
-     - http:
-         path: users/create
-         method: get
+      - http:
+          path: users/create
+          method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
