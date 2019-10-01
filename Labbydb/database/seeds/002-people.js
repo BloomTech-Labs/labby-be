@@ -13,7 +13,7 @@ exports.seed = function(knex) {
           first_name: "Edsel",
           last_name: "Earie",
           time_zone: "Europe/Berlin",
-          program: "Mitsubishi"
+          program: "Web"
         },
         {
           id: 2,
@@ -23,7 +23,7 @@ exports.seed = function(knex) {
           first_name: "Teresita",
           last_name: "Mitchall",
           time_zone: "Asia/Chongqing",
-          program: "Scion"
+          program: "Web"
         },
         {
           id: 3,
@@ -33,7 +33,7 @@ exports.seed = function(knex) {
           first_name: "Leroy",
           last_name: "Cornely",
           time_zone: "Europe/Istanbul",
-          program: "Studebaker"
+          program: "Web"
         },
         {
           id: 4,
@@ -43,7 +43,7 @@ exports.seed = function(knex) {
           first_name: "Harmony",
           last_name: "Benedtti",
           time_zone: "Africa/Monrovia",
-          program: "Volvo"
+          program: "Web"
         },
         {
           id: 5,
@@ -53,7 +53,7 @@ exports.seed = function(knex) {
           first_name: "Selby",
           last_name: "Beaushaw",
           time_zone: "Africa/Dakar",
-          program: "Subaru"
+          program: "Web"
         },
         {
           id: 6,
@@ -63,7 +63,7 @@ exports.seed = function(knex) {
           first_name: "Corrina",
           last_name: "Briddock",
           time_zone: "Africa/Blantyre",
-          program: "Volvo"
+          program: "Web"
         },
         {
           id: 7,
@@ -73,7 +73,7 @@ exports.seed = function(knex) {
           first_name: "Brennan",
           last_name: "Gilliard",
           time_zone: "Asia/Jakarta",
-          program: "GMC"
+          program: "Web"
         },
         {
           id: 8,
@@ -83,7 +83,7 @@ exports.seed = function(knex) {
           first_name: "Elspeth",
           last_name: "Emblem",
           time_zone: "Asia/Manila",
-          program: "Lotus"
+          program: "Web"
         },
         {
           id: 9,
@@ -93,7 +93,7 @@ exports.seed = function(knex) {
           first_name: "Mollie",
           last_name: "Aulds",
           time_zone: "America/Montreal",
-          program: "Buick"
+          program: "Web"
         },
         {
           id: 10,
@@ -103,7 +103,7 @@ exports.seed = function(knex) {
           first_name: "Gilberto",
           last_name: "Pauletto",
           time_zone: "Europe/Uzhgorod",
-          program: "Kia"
+          program: "Web"
         },
         {
           id: 11,
@@ -113,7 +113,7 @@ exports.seed = function(knex) {
           first_name: "Pearla",
           last_name: "Witchard",
           time_zone: "America/Edmonton",
-          program: "Ford"
+          program: "Web"
         },
         {
           id: 12,
@@ -123,7 +123,7 @@ exports.seed = function(knex) {
           first_name: "Berkley",
           last_name: "Warne",
           time_zone: "Asia/Tokyo",
-          program: "Lamborghini"
+          program: "Web"
         },
         {
           id: 13,
@@ -133,7 +133,7 @@ exports.seed = function(knex) {
           first_name: "Ludovico",
           last_name: "Bilsland",
           time_zone: "Europe/Lisbon",
-          program: "Lincoln"
+          program: "Web"
         },
         {
           id: 14,
@@ -143,7 +143,7 @@ exports.seed = function(knex) {
           first_name: "Stefano",
           last_name: "Minchinden",
           time_zone: "Europe/Paris",
-          program: "Maserati"
+          program: "Web"
         },
         {
           id: 15,
@@ -153,7 +153,7 @@ exports.seed = function(knex) {
           first_name: "Lindie",
           last_name: "Wellesley",
           time_zone: "Asia/Shanghai",
-          program: "GMC"
+          program: "Web"
         },
         {
           id: 16,
@@ -163,7 +163,7 @@ exports.seed = function(knex) {
           first_name: "Guy",
           last_name: "Bumby",
           time_zone: "America/Argentina/Cordoba",
-          program: "Mercury"
+          program: "Web"
         },
         {
           id: 17,
@@ -173,7 +173,7 @@ exports.seed = function(knex) {
           first_name: "Corinna",
           last_name: "Bulter",
           time_zone: "Europe/Paris",
-          program: "Pontiac"
+          program: "UX"
         },
         {
           id: 18,
@@ -183,7 +183,7 @@ exports.seed = function(knex) {
           first_name: "Almire",
           last_name: "Brittoner",
           time_zone: "Asia/Kuala_Lumpur",
-          program: "Dodge"
+          program: "UX"
         },
         {
           id: 19,
@@ -193,7 +193,7 @@ exports.seed = function(knex) {
           first_name: "Linette",
           last_name: "Schoolfield",
           time_zone: "Asia/Makassar",
-          program: "Ford"
+          program: "UX"
         },
         {
           id: 20,
@@ -203,7 +203,7 @@ exports.seed = function(knex) {
           first_name: "Demetria",
           last_name: "Romei",
           time_zone: "Asia/Harbin",
-          program: "GMC"
+          program: "UX"
         },
         {
           id: 21,
@@ -213,7 +213,7 @@ exports.seed = function(knex) {
           first_name: "Diannne",
           last_name: "Longworthy",
           time_zone: "Europe/Zaporozhye",
-          program: "Mercury"
+          program: "UX"
         },
         {
           id: 22,
@@ -223,7 +223,7 @@ exports.seed = function(knex) {
           first_name: "Ambrose",
           last_name: "Cordery",
           time_zone: "Asia/Shanghai",
-          program: "Mercedes-Benz"
+          program: "UX"
         },
         {
           id: 23,
@@ -233,7 +233,7 @@ exports.seed = function(knex) {
           first_name: "Ab",
           last_name: "Reuven",
           time_zone: "Africa/Lagos",
-          program: "Volkswagen"
+          program: "UX"
         },
         {
           id: 24,
@@ -243,7 +243,7 @@ exports.seed = function(knex) {
           first_name: "Elora",
           last_name: "Kleanthous",
           time_zone: "Asia/Shanghai",
-          program: "Chevrolet"
+          program: "UX"
         },
         {
           id: 25,
@@ -253,7 +253,7 @@ exports.seed = function(knex) {
           first_name: "Malynda",
           last_name: "Shegog",
           time_zone: "Asia/Tashkent",
-          program: "Honda"
+          program: "UX"
         },
         {
           id: 26,
@@ -263,7 +263,7 @@ exports.seed = function(knex) {
           first_name: "Padraic",
           last_name: "Ching",
           time_zone: "Europe/Prague",
-          program: "Maybach"
+          program: "UX"
         },
         {
           id: 27,
@@ -273,7 +273,7 @@ exports.seed = function(knex) {
           first_name: "Allan",
           last_name: "Heare",
           time_zone: "America/Tegucigalpa",
-          program: "Mercedes-Benz"
+          program: "DS"
         },
         {
           id: 28,
@@ -283,7 +283,7 @@ exports.seed = function(knex) {
           first_name: "Melania",
           last_name: "Adamsky",
           time_zone: "Asia/Jakarta",
-          program: "Mazda"
+          program: "DS"
         },
         {
           id: 29,
@@ -293,7 +293,7 @@ exports.seed = function(knex) {
           first_name: "Jessie",
           last_name: "Gerriessen",
           time_zone: "Africa/Juba",
-          program: "Mercedes-Benz"
+          program: "DS"
         },
         {
           id: 30,
@@ -303,7 +303,7 @@ exports.seed = function(knex) {
           first_name: "Xylia",
           last_name: "Gillbard",
           time_zone: "Asia/Manila",
-          program: "Mercedes-Benz"
+          program: "DS"
         },
         {
           id: 31,
@@ -313,7 +313,7 @@ exports.seed = function(knex) {
           first_name: "Delinda",
           last_name: "Learmount",
           time_zone: "Asia/Chongqing",
-          program: "Ford"
+          program: "DS"
         },
         {
           id: 32,
@@ -323,7 +323,7 @@ exports.seed = function(knex) {
           first_name: "Hurley",
           last_name: "Christopher",
           time_zone: "Asia/Jakarta",
-          program: "Chevrolet"
+          program: "DS"
         },
         {
           id: 33,
@@ -333,7 +333,7 @@ exports.seed = function(knex) {
           first_name: "Violet",
           last_name: "Kopta",
           time_zone: "Asia/Jakarta",
-          program: "Chevrolet"
+          program: "DS"
         },
         {
           id: 34,
@@ -343,7 +343,7 @@ exports.seed = function(knex) {
           first_name: "Rolfe",
           last_name: "Sargeaunt",
           time_zone: "Africa/Lagos",
-          program: "Chrysler"
+          program: "DS"
         },
         {
           id: 35,
@@ -353,7 +353,7 @@ exports.seed = function(knex) {
           first_name: "Rolf",
           last_name: "O'Hannigan",
           time_zone: "Asia/Makassar",
-          program: "Mitsubishi"
+          program: "DS"
         },
         {
           id: 36,
@@ -363,7 +363,7 @@ exports.seed = function(knex) {
           first_name: "Goldarina",
           last_name: "Ratter",
           time_zone: "America/Asuncion",
-          program: "Mercury"
+          program: "DS"
         },
         {
           id: 37,
@@ -373,7 +373,7 @@ exports.seed = function(knex) {
           first_name: "Pearla",
           last_name: "Saltwell",
           time_zone: "Asia/Chongqing",
-          program: "Mitsubishi"
+          program: "DS"
         },
         {
           id: 38,
@@ -383,7 +383,7 @@ exports.seed = function(knex) {
           first_name: "Jamie",
           last_name: "Mabey",
           time_zone: "Asia/Kabul",
-          program: "Ford"
+          program: "AND"
         },
         {
           id: 39,
@@ -393,7 +393,7 @@ exports.seed = function(knex) {
           first_name: "Gabriella",
           last_name: "Mulhall",
           time_zone: "Asia/Shanghai",
-          program: "Chevrolet"
+          program: "AND"
         },
         {
           id: 40,
@@ -403,7 +403,7 @@ exports.seed = function(knex) {
           first_name: "Valentijn",
           last_name: "Nellis",
           time_zone: "Asia/Bangkok",
-          program: "Land Rover"
+          program: "AND"
         },
         {
           id: 41,
@@ -413,7 +413,7 @@ exports.seed = function(knex) {
           first_name: "Meris",
           last_name: "Georgiev",
           time_zone: "Asia/Jakarta",
-          program: "Volvo"
+          program: "AND"
         },
         {
           id: 42,
@@ -423,7 +423,7 @@ exports.seed = function(knex) {
           first_name: "Nikola",
           last_name: "Mosedill",
           time_zone: "Asia/Shanghai",
-          program: "Volkswagen"
+          program: "AND"
         },
         {
           id: 43,
@@ -433,7 +433,7 @@ exports.seed = function(knex) {
           first_name: "Brook",
           last_name: "Sorrel",
           time_zone: "Europe/Kaliningrad",
-          program: "BMW"
+          program: "AND"
         },
         {
           id: 44,
@@ -443,7 +443,7 @@ exports.seed = function(knex) {
           first_name: "Jaimie",
           last_name: "Mitrovic",
           time_zone: "Africa/Kampala",
-          program: "Land Rover"
+          program: "AND"
         },
         {
           id: 45,
@@ -453,7 +453,7 @@ exports.seed = function(knex) {
           first_name: "Gayler",
           last_name: "Salery",
           time_zone: "Asia/Bangkok",
-          program: "GMC"
+          program: "IOS"
         },
         {
           id: 46,
@@ -463,7 +463,7 @@ exports.seed = function(knex) {
           first_name: "Yvon",
           last_name: "Jeannaud",
           time_zone: "Asia/Manila",
-          program: "Lincoln"
+          program: "IOS"
         },
         {
           id: 47,
@@ -473,7 +473,7 @@ exports.seed = function(knex) {
           first_name: "Hy",
           last_name: "Gidney",
           time_zone: "America/Bogota",
-          program: "Acura"
+          program: "IOS"
         },
         {
           id: 48,
@@ -483,7 +483,7 @@ exports.seed = function(knex) {
           first_name: "Stacy",
           last_name: "Gisborne",
           time_zone: "Asia/Makassar",
-          program: "Mercury"
+          program: "IOS"
         },
         {
           id: 49,
@@ -493,7 +493,7 @@ exports.seed = function(knex) {
           first_name: "Sunshine",
           last_name: "Piffe",
           time_zone: "Asia/Chongqing",
-          program: "Toyota"
+          program: "IOS"
         },
         {
           id: 50,
@@ -503,7 +503,7 @@ exports.seed = function(knex) {
           first_name: "Arleyne",
           last_name: "Penrice",
           time_zone: "Africa/Ndjamena",
-          program: "Audi"
+          program: "IOS"
         }
       ]);
     });
