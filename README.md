@@ -13,10 +13,10 @@ To get the project running :
 - **serverless deploy** to deploy a function to AWS 
 - **handler.js** to run a javascipt function locally, after it is defined outside of an exported function 
 
-### Backend framework goes here
+### Backend framework 
 Labby is a Function as a service / serverless application consisting of AWS Lmabda functions connected to a Postgresql database, and uses a Slackbot to interact with users. 
 
-- Function as a service framework allowing us to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+- Function as a service framework allows us to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
 - Lambda functions allow us to write and run code without provisioning or managing servers allowing our code to run fast and reducing costs
 - Lambda functions allow us to write code in multiple languages Like Node, Go and Python. 
 - Using a Slackbot allows us to create a personable conversation tool that is easy to interact with. AWS has a service Lex that assists us in building out the Slackbot
