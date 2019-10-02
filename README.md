@@ -1,36 +1,31 @@
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline. Feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 3️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric.  Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
 # API Documentation
 
-#### 1️⃣ Backend delpoyed at [🚫name service here](🚫add URL here) <br>
+#### 1️⃣ Backend delpoyed on [Amazon Web Services](https://aws.amazon.com/) <br>
 
 ## 1️⃣ Getting started
 
-To get the server running locally:
+To get the project running :
 
-🚫 adjust these scripts to match your project
 
 - Clone this repo
-- **yarn install** to install all required dependencies
-- **yarn server** to start the local server
-- **yarn test** to start server using testing environment
+- **cd into desired folder** to be able to work with desired function
+- **npm i** to install all required dependencies
+- **serverless config** to create relationship with AWS account
+- **serverless deploy** to deploy a function to AWS 
+- **handler.js** to run a javascipt function locally, after it is defined outside of an exported function 
 
 ### Backend framework goes here
+Labby is a Function as a service / serverless application consisting of AWS Lmabda functions connected to a Postgresql database, and uses a Slackbot to interact with users. 
 
-🚫 Why did you choose this framework?
-
--    Point One
--    Point Two
--    Point Three
--    Point Four
+- Function as a service framework allowing us to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+- Lambda functions allow us to write and run code without provisioning or managing servers allowing our code to run fast and reducing costs
+- Lambda functions allow us to write code in multiple languages Like Node, Go and Python. 
+- Using a Slackbot allows us to create a personable conversation tool that is easy to interact with. AWS has a service Lex that assists us in building out the Slackbot
+- Connecting to a Postgresql data base allows us to store and query our database in a relational manner. Allowing us to easily make joins and connections between tables. 
 
 ## 2️⃣ Endpoints
 
-🚫This is a placeholder, replace the endpoints, access controll, and descriptioin to match your project
+🚫This is a placeholder, replace the endpoints, access control, and descriptioin to match your project
 
 #### Organization Routes
 
