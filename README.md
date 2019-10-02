@@ -1,8 +1,8 @@
 # API Documentation
 
-#### 1️⃣ Backend delpoyed on [Amazon Web Services](https://aws.amazon.com/) <br>
+#### Backend delpoyed on [Amazon Web Services](https://aws.amazon.com/) <br>
 
-## 1️⃣ Getting started
+## Getting started
 
 To get the project running :
 
@@ -22,7 +22,7 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 - Using a Slackbot allows us to create a personable conversation tool that is easy to interact with. AWS has a service Lex that assists us in building out the Slackbot
 - Connecting to a Postgresql data base allows us to store and query our database in a relational manner. Allowing us to easily make joins and connections between tables. 
 
-## 2️⃣ Endpoints
+## Endpoints
 
 
 #### Organization Routes
@@ -57,7 +57,7 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 }
 ```
 
-#### People
+#### people
 
 ---
 
@@ -83,7 +83,7 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
   people_group_id: INT
 }
 ```
-#### Products
+#### products
 
 ---
 
