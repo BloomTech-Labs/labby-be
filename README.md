@@ -6,7 +6,6 @@
 
 To get the project running :
 
-
 - Clone this repo
 - **cd into desired folder** to be able to work with desired function
 - **npm i** to install all required dependencies
@@ -25,7 +24,6 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 
 ## 2️⃣ Endpoints
 
-🚫This is a placeholder, replace the endpoints, access control, and descriptioin to match your project
 
 #### Organization Routes
 
@@ -48,9 +46,7 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 
 # Data Model
 
-🚫This is just an example. Replace this with your data model
-
-#### 2️⃣ ORGANIZATIONS
+#### people_groups
 
 ---
 
@@ -58,30 +54,128 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 {
   id: UUID
   name: STRING
-  industry: STRING
-  paid: BOOLEAN
-  customer_id: STRING
-  subscription_id: STRING
 }
 ```
 
-#### USERS
+#### People
 
 ---
 
 ```
 {
   id: UUID
-  organization_id: UUID foreign key in ORGANIZATIONS table
+  email: STRING
+  slack_id: STRING
+  github_id: STRING
   first_name: STRING
   last_name: STRING
-  role: STRING [ 'owner', 'supervisor', 'employee' ]
-  email: STRING
-  phone: STRING
-  cal_visit: BOOLEAN
-  emp_visit: BOOLEAN
-  emailpref: BOOLEAN
-  phonepref: BOOLEAN
+  time_zone: STRING
+  program: STRING
+}
+```
+#### people_group_members
+
+---
+
+```
+{
+  person_id: INT
+  people_group_id: INT
+}
+```
+#### Products
+
+---
+
+```
+{
+  id: UUID
+  name: STRING
+}
+```
+
+#### project_groups
+
+---
+
+```
+{
+  id: UUID
+  name: STRING
+}
+```
+
+#### projects
+
+---
+
+```
+{
+  id: UUID
+  product_id: INT
+  name: STRING
+  start: TIMESTAMP
+  end: TIMESTAMP
+}
+```
+
+#### project_group_members
+
+---
+
+```
+{
+  project_id: INT
+  project_group_id: INT
+}
+```
+
+#### roles
+
+---
+
+```
+{
+  id: UUID
+  name: STRING
+  type: STRING
+}
+```
+
+#### lambda_roles
+
+---
+
+```
+{
+  id: UUID
+  person_id: INT
+  role_id: INT
+}
+```
+#### project_roles
+
+---
+
+```
+{
+  id: UUID
+  person_id: INT
+  role_id: INT
+  project_id:INT
+}
+```
+
+#### product_roles
+
+---
+
+```
+{
+  id: UUID
+  person_id: INT
+  product_id: INT
+  role_id: INT
 }
 ```
 
