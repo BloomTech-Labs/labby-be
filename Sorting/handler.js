@@ -111,7 +111,7 @@ exports.projectRoles = async (event, context, callback) => {
   });
   // /\grabbing project-roles
   let projectRoles = await knex("project_roles");
-  // we need filled prijects for the loop
+  // we need filled projects for the loop
   let filledProjects = 0;
   // a empty array so we can push all our role.ids
   const placeholder = [];
