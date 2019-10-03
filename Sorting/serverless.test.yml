@@ -1,0 +1,48 @@
+- name: Get all Projects
+  endpoint: {function: getAllProjects}
+  response:
+    body: 
+      {
+        'object'
+      }
+
+- name: Get all People
+  endpoint: {function: getAllPeople}
+  response:
+    body: 
+      {
+        'object'
+      }
+
+- name: Get Roles
+  endpoint: {function: getRoles}
+  response:
+    body: 
+      {
+        'object'
+      }
+
+- name: Post Project
+  endpoint: {function: postProject}
+  response:
+    body: 
+      {
+        'object'
+      }
+
+
+- name: Populate People 
+  endpoint: {function: populatePeople}
+  response:
+    body: 
+      {
+        'object'
+      }
+
+- name: Populate Roles
+  endpoint: {function: projectRoles}
+  response:
+    body: 
+      {
+        'object'
+      }

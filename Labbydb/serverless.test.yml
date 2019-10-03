@@ -1,0 +1,8 @@
+- name: runs migration and seeds
+  endpoint: {function: hello}
+  response:
+    body: 
+      {
+        message: 'db was migrated and seeded properly',
+        input: {'object'},
+      }
