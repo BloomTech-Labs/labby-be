@@ -1,61 +1,52 @@
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline. Feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 3️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric.  Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
 # API Documentation
 
-#### 1️⃣ Backend delpoyed at [🚫name service here](🚫add URL here) <br>
+#### Backend delpoyed on [Amazon Web Services](https://aws.amazon.com/) <br>
 
-## 1️⃣ Getting started
+## Getting started
 
-To get the server running locally:
-
-🚫 adjust these scripts to match your project
+To get the project running :
 
 - Clone this repo
-- **yarn install** to install all required dependencies
-- **yarn server** to start the local server
-- **yarn test** to start server using testing environment
+- **cd into desired folder** to be able to work with desired function
+- **npm i** to install all required dependencies
+- **serverless config** to create relationship with AWS account
+- **serverless deploy** to deploy a function to AWS 
+- **handler.js** to run a javascipt function locally, after it is defined outside of an exported function 
 
-### Backend framework goes here
+### Backend framework 
+Labby is a Function as a service / serverless application consisting of AWS Lmabda functions connected to a Postgresql database, and uses a Slackbot to interact with users. 
 
-🚫 Why did you choose this framework?
+- Function as a service framework allows us to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+- Lambda functions allow us to write and run code without provisioning or managing servers allowing our code to run fast and reducing costs
+- Lambda functions allow us to write code in multiple languages Like Node, Go and Python. 
+- Using a Slackbot allows us to create a personable conversation tool that is easy to interact with. AWS has a service Lex that assists us in building out the Slackbot
+- Connecting to a Postgresql data base allows us to store and query our database in a relational manner. Allowing us to easily make joins and connections between tables. 
 
--    Point One
--    Point Two
--    Point Three
--    Point Four
+## Endpoints
 
-## 2️⃣ Endpoints
+Endpoints must be prefixed with the AWS URL which can be found in the API gateway section of the AWS console.
 
-🚫This is a placeholder, replace the endpoints, access controll, and descriptioin to match your project
-
-#### Organization Routes
+#### Migration Routes
 
 | Method | Endpoint                | Access Control | Description                                  |
 | ------ | ----------------------- | -------------- | -------------------------------------------- |
-| GET    | `/organizations/:orgId` | all users      | Returns the information for an organization. |
-| PUT    | `/organizatoins/:orgId` | owners         | Modify an existing organization.             |
-| DELETE | `/organizations/:orgId` | owners         | Delete an organization.                      |
+| GET    | `/users/create` | all users      | Runs the migrations and seeds for the labby database. |
 
-#### User Routes
+
+#### Sorting Routes
 
 | Method | Endpoint                | Access Control      | Description                                        |
 | ------ | ----------------------- | ------------------- | -------------------------------------------------- |
-| GET    | `/users/current`        | all users           | Returns info for the logged in user.               |
-| GET    | `/users/org/:userId`    | owners, supervisors | Returns all users for an organization.             |
-| GET    | `/users/:userId`        | owners, supervisors | Returns info for a single user.                    |
-| POST   | `/users/register/owner` | none                | Creates a new user as owner of a new organization. |
-| PUT    | `/users/:userId`        | owners, supervisors |                                                    |
-| DELETE | `/users/:userId`        | owners, supervisors |                                                    |
+| GET    | `/people`        | all users           | Returns all People in the people table.               |
+| GET    | `/getallprojects`    | all users | Returns all projects from the projects table.             |
+| GET    | `/roles`        | all users| Returns all roles from the roles table.                    |
+| GET   | `/populatepeople` | all users                |Takes all of the people in the people table and inserts them into the project_roles table. |
+| GET    | `projectroles`        | all users|  Takes all of the projects from the projects table and assigns them to users in the project_roles table                                                  |
+| POST | `/projects/create`        | all users | Allows a new project to be created                                                   |
 
 # Data Model
 
-🚫This is just an example. Replace this with your data model
-
-#### 2️⃣ ORGANIZATIONS
+#### people_groups
 
 ---
 
@@ -63,72 +54,143 @@ To get the server running locally:
 {
   id: UUID
   name: STRING
-  industry: STRING
-  paid: BOOLEAN
-  customer_id: STRING
-  subscription_id: STRING
 }
 ```
 
-#### USERS
+#### people
 
 ---
 
 ```
 {
   id: UUID
-  organization_id: UUID foreign key in ORGANIZATIONS table
+  email: STRING
+  slack_id: STRING
+  github_id: STRING
   first_name: STRING
   last_name: STRING
-  role: STRING [ 'owner', 'supervisor', 'employee' ]
-  email: STRING
-  phone: STRING
-  cal_visit: BOOLEAN
-  emp_visit: BOOLEAN
-  emailpref: BOOLEAN
-  phonepref: BOOLEAN
+  time_zone: STRING
+  program: STRING
+}
+```
+#### people_group_members
+
+---
+
+```
+{
+  person_id: INT
+  people_group_id: INT
+}
+```
+#### products
+
+---
+
+```
+{
+  id: UUID
+  name: STRING
 }
 ```
 
-## 2️⃣ Actions
+#### project_groups
 
-🚫 This is an example, replace this with the actions that pertain to your backend
+---
 
-`getOrgs()` -> Returns all organizations
+```
+{
+  id: UUID
+  name: STRING
+}
+```
 
-`getOrg(orgId)` -> Returns a single organization by ID
+#### projects
 
-`addOrg(org)` -> Returns the created org
+---
 
-`updateOrg(orgId)` -> Update an organization by ID
+```
+{
+  id: UUID
+  product_id: INT
+  name: STRING
+  start: TIMESTAMP
+  end: TIMESTAMP
+}
+```
 
-`deleteOrg(orgId)` -> Delete an organization by ID
-<br>
-<br>
-<br>
-`getUsers(orgId)` -> if no param all users
+#### project_group_members
 
-`getUser(userId)` -> Returns a single user by user ID
+---
 
-`addUser(user object)` --> Creates a new user and returns that user. Also creates 7 availabilities defaulted to hours of operation for their organization.
+```
+{
+  project_id: INT
+  project_group_id: INT
+}
+```
 
-`updateUser(userId, changes object)` -> Updates a single user by ID.
+#### roles
 
-`deleteUser(userId)` -> deletes everything dependent on the user
+---
 
-## 3️⃣ Environment Variables
+```
+{
+  id: UUID
+  name: STRING
+  type: STRING
+}
+```
 
-In order for the app to function correctly, the user must set up their own environment variables.
+#### lambda_roles
 
-create a .env file that includes the following:
+---
 
-🚫 These are just examples, replace them with the specifics for your app
-    
-    *  STAGING_DB - optional development db for using functionality not available in SQLite
-    *  NODE_ENV - set to "development" until ready for "production"
-    *  JWT_SECRET - you can generate this by using a python shell and running import random''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#\$%^&amp;*(-*=+)') for i in range(50)])
-    *  SENDGRID_API_KEY - this is generated in your Sendgrid account
-    *  stripe_secret - this is generated in the Stripe dashboard
+```
+{
+  id: UUID
+  person_id: INT
+  role_id: INT
+}
+```
+#### project_roles
+
+---
+
+```
+{
+  id: UUID
+  person_id: INT
+  role_id: INT
+  project_id:INT
+}
+```
+
+#### product_roles
+
+---
+
+```
+{
+  id: UUID
+  person_id: INT
+  product_id: INT
+  role_id: INT
+}
+```
+
+## Environment
+
+Environment Variables and keys are handled though the [AWS CLI](https://aws.amazon.com/cli/) 
+
+Install the CLI by following the [documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+
+Configure the CLI by following these [instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+
+To create and deploy a new lambda function, create a new folder, and follow the [documentation](https://docs.aws.amazon.com/cli/latest/reference/serverlessrepo/index.html)
+
+To deploy a lambda function to AWS make sure you are inside of the folder of that function and follow this [documentation](https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/)
+
     
 ## Contributing
 
