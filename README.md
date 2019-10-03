@@ -189,6 +189,7 @@ Configure the CLI by following these [instructions](https://docs.aws.amazon.com/
 
 To create and deploy a new lambda function, create a new folder, and follow the [documentation](https://docs.aws.amazon.com/cli/latest/reference/serverlessrepo/index.html)
 
+To deploy a lambda function to AWS make sure you are inside of the folder of that function and follow this [documentation](https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/)
 
     
 ## Contributing
