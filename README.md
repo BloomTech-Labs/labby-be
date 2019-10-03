@@ -24,12 +24,13 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 
 ## Endpoints
 
+Endpoints must be prefixed with the AWS URL which can be found in the API gateway section of the AWS console.
 
 #### Migration Routes
 
 | Method | Endpoint                | Access Control | Description                                  |
 | ------ | ----------------------- | -------------- | -------------------------------------------- |
-| GET    | `users/create` | all users      | Runs the migrations and seeds for the labby database. |
+| GET    | `/users/create` | all users      | Runs the migrations and seeds for the labby database. |
 
 
 #### Sorting Routes
@@ -37,11 +38,11 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 | Method | Endpoint                | Access Control      | Description                                        |
 | ------ | ----------------------- | ------------------- | -------------------------------------------------- |
 | GET    | `/people`        | all users           | Returns all People in the people table.               |
-| GET    | `/getallprojects`    | owners, supervisors | Returns all projects from the projects table.             |
+| GET    | `/getallprojects`    | all users | Returns all projects from the projects table.             |
 | GET    | `/roles`        | all users| Returns all roles from the roles table.                    |
-| GET   | `/populatepeople` | none                |Takes all of the people in the people table and inserts them into the project_roles table. |
+| GET   | `/populatepeople` | all users                |Takes all of the people in the people table and inserts them into the project_roles table. |
 | GET    | `projectroles`        | all users|  Takes all of the projects from the projects table and assigns them to users in the project_roles table                                                  |
-| POST | `projects/create`        | all users | Allows a new project to be created                                                   |
+| POST | `/projects/create`        | all users | Allows a new project to be created                                                   |
 
 # Data Model
 
