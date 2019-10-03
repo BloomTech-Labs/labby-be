@@ -58,6 +58,7 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
+# HERE is where we declare the functions  / the crud methods should be located in the handler.js file
 functions:
   getAllProjects:
     handler: handler.getAllProjects
