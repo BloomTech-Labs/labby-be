@@ -25,24 +25,23 @@ Labby is a Function as a service / serverless application consisting of AWS Lmab
 ## Endpoints
 
 
-#### Organization Routes
+#### Migration Routes
 
 | Method | Endpoint                | Access Control | Description                                  |
 | ------ | ----------------------- | -------------- | -------------------------------------------- |
-| GET    | `/organizations/:orgId` | all users      | Returns the information for an organization. |
-| PUT    | `/organizatoins/:orgId` | owners         | Modify an existing organization.             |
-| DELETE | `/organizations/:orgId` | owners         | Delete an organization.                      |
+| GET    | `users/create` | all users      | Runs the migrations and seeds for the labby database. |
 
-#### User Routes
+
+#### Sorting Routes
 
 | Method | Endpoint                | Access Control      | Description                                        |
 | ------ | ----------------------- | ------------------- | -------------------------------------------------- |
-| GET    | `/users/current`        | all users           | Returns info for the logged in user.               |
-| GET    | `/users/org/:userId`    | owners, supervisors | Returns all users for an organization.             |
-| GET    | `/users/:userId`        | owners, supervisors | Returns info for a single user.                    |
-| POST   | `/users/register/owner` | none                | Creates a new user as owner of a new organization. |
-| PUT    | `/users/:userId`        | owners, supervisors |                                                    |
-| DELETE | `/users/:userId`        | owners, supervisors |                                                    |
+| GET    | `/people`        | all users           | Returns all People in the people table.               |
+| GET    | `/getallprojects`    | owners, supervisors | Returns all projects from the projects table.             |
+| GET    | `/roles`        | all users| Returns all roles from the roles table.                    |
+| GET   | `/populatepeople` | none                |Takes all of the people in the people table and inserts them into the project_roles table. |
+| GET    | `projectroles`        | all users|  Takes all of the projects from the projects table and assigns them to users in the project_roles table                                                  |
+| POST | `projects/create`        | all users | Allows a new project to be created                                                   |
 
 # Data Model
 
