@@ -1,58 +1,38 @@
 - name: Get all Projects
   endpoint: {function: getAllProjects}
   response:
-    body: 
-      {
-        'object'
-      }
-    
-
-
+    statusCode: 200
 
 - name: Get all People
   endpoint: {function: getAllPeople}
   response:
     statusCode: 200
-    body: 
-      {
-        object
-      }
+
 
 - name: Get Roles
   endpoint: {function: getRoles}
   response:
     statusCode: 200
-    body: 
-      {
-        'object'
-      }
 
-- name: Post Project
-  endpoint: {function: postProject}
-  request: 
-    body: 
-  response:
-    statusCode: 200
-    body: 
-      {
-        'object'
-      }
+
+# - name: Post Project
+#   endpoint: {function: postProject}
+#   request: 
+#     body: 
+#   response:
+#     statusCode: 200
+#     body: 
+#       {
+#         'object'
+#       }
 
 
 - name: Populate People 
   endpoint: {function: populatePeople}
   response:
     statusCode: 200
-    body: 
-      {
-        'object'
-      }
 
-- name: Populate Roles
+- name: Populate ProjectRoles
   endpoint: {function: projectRoles}
   response:
     statusCode: 200
-    body: 
-      {
-        'object'
-      }
