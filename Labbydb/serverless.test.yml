@@ -1,3 +1,9 @@
+- name: fails to run migrations and seeds
+  endpoint: {function: fail}
+  response:
+    status: 500
+
+
 - name: runs migration and seeds
   endpoint: {function: hello}
   response:
