@@ -4,7 +4,6 @@
   "description": "",
   "main": "handler.js",
   "dependencies": {
-    "jest": "^24.9.0",
     "knex": "^0.19.4",
     "pg": "^7.12.1"
   },
