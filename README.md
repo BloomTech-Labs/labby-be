@@ -14,7 +14,7 @@ To get the project running :
 - **handler.js** to run a javascipt function locally, after it is defined outside of an exported function 
 
 ### Backend framework 
-Labby is a Function as a service / serverless application consisting of AWS Lmabda functions connected to a Postgresql database, and uses a Slackbot to interact with users. 
+Labby is a Function as a service / serverless application consisting of AWS Lmabda functions connected to a Postgresql database, and uses AWS Lex chatbot integrated with a Slack bot application through the Slack API to interact with users. 
 
 - Function as a service framework allows us to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
 - Lambda functions allow us to write and run code without provisioning or managing servers allowing our code to run fast and reducing costs
