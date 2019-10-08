@@ -1,7 +1,9 @@
 // all handlers/functions. functions have to be declared inside the .yml before declaring them here 
 "use strict";
+
 // pgsettings connections settings 
 const pgSettings = require('./config/db.js')
+
 // connects to aws database
 const knex = require("knex")({
   client: "pg",
@@ -213,21 +215,30 @@ exports.projectRoles = async (event, context, callback) => {
 
 // projectRoles()
 
-const getAllProjects = async (event, context, callback) => {
-  console.log("inside get all projects")
-  await knex("projects")
-    .then(projects => {
-      knex.client.destroy();
-      console.log("callback", callback)
-      return callback(null, {
-        statusCode: 200,
-        body: JSON.stringify(projects)
-      });
-    })
-    .catch(err => {
-      knex.client.destroy();
-      return callback(err.message);
-    });
-};
+// const getAllProjects = async (event, context, callback) => {
+//   console.log("inside get all projects")
+//   console.log("process.env", process.env)
 
-getAllProjects()
+//   console.log({
+//     database: process.env.DATABASE_URL,
+//     host: process.env.AWS_URL,
+//     port: process.env.PORT,
+//     user: process.env.POSTGRES,
+//     password: process.env.PASSWORD,
+//   })
+//   await knex("projects")
+//     .then(projects => {
+//       knex.client.destroy();
+//       console.log("callback", callback)
+//       return callback(null, {
+//         statusCode: 200,
+//         body: JSON.stringify(projects)
+//       });
+//     })
+//     .catch(err => {
+//       knex.client.destroy();
+//       return callback(err.message);
+//     });
+// };
+
+// getAllProjects()
