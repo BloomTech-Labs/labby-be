@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "kiwi.js": "^1.1.2"
+    "kiwi.js": "^1.1.2",
+    "knex": "^0.19.5"
   }
 }
