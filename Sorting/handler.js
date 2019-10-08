@@ -32,13 +32,9 @@ exports.getAllProjects = async (event, context, callback) => {
 // post a project
 //TODO: ADD IN ERROR CASES 
 exports.postProject = async (event, context, callback) => {
-  // declaring variables 
-
-  const body = JSON.parse(event.body);
-  const postBody = { ...req.body };
   // knex
   knex("projects")
-    .insert(postBody)
+    .insert(req.body)
     .returning("*")
     .then(res => {
       return callback(res);
