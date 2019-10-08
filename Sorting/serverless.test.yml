@@ -15,16 +15,17 @@
     statusCode: 200
 
 
+- name: Post Project
+  endpoint: {function: postProject}
+  response:
+    statusCode: 500
+
 # - name: Post Project
 #   endpoint: {function: postProject}
 #   request: 
 #     body: 
 #   response:
 #     statusCode: 200
-#     body: 
-#       {
-#         'object'
-#       }
 
 
 - name: Populate People 
