@@ -1,7 +1,7 @@
 // all handlers/functions. functions have to be declared inside the .yml before declaring them here 
 "use strict";
 // pgsettings connections settings 
-const pgSettings = require('db.js')
+const pgSettings = require('./config/db.js')
 // connects to aws database
 const knex = require("knex")({
   client: "pg",
