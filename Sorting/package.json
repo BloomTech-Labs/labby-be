@@ -4,13 +4,15 @@
   "description": "",
   "main": "handler.js",
   "dependencies": {
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "knex": "^0.19.4",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
