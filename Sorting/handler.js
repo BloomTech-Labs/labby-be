@@ -1,14 +1,7 @@
 // all handlers/functions. functions have to be declared inside the .yml before declaring them here 
 "use strict";
 // pgsettings connections settings 
-//TODO: import db.js for pgSettings
-const pgSettings = {
-  host: "labbydatabase.cu5flbcmyfuw.us-east-1.rds.amazonaws.com",
-  user: "postgres",
-  password: "password",
-  port: 5432,
-  database: "postgres"
-};
+const pgSettings = require('db.js')
 // connects to aws database
 const knex = require("knex")({
   client: "pg",
@@ -107,7 +100,7 @@ exports.projectRoles = async (event, context, callback) => {
   const projectsMap = projects.map(project => {
     return { project_id: project.id };
   });
-  // /\grabbing project-roles
+  //grabbing project_roles
   let projectRoles = await knex("project_roles");
   // we need filled projects for the loop
   let filledProjects = 0;
@@ -123,9 +116,9 @@ exports.projectRoles = async (event, context, callback) => {
 
       for (let i = 0; i < d; i++) {
         let current = projectRoles[i + filledProjects * d];
-        // chwcking if the current item is null and if it is we move to the next if statment 
+        // checking if the current item is null and if it is we move to the next if statement 
         if (projectRoles[i + filledProjects * d] != null) {
-          // checking if the current item is equal to d which is th amount of groups
+          // checking if the current item is equal to d which is the amount of groups
           if (i == d - 1) {
 
             filledProjects++;
@@ -135,7 +128,7 @@ exports.projectRoles = async (event, context, callback) => {
       }
     });
 //  putting/updating the placeholder array into the project_roles
-    let updatedProjects = placeholder.map(async p => {
+    placeholder.map(async p => {
       console.log("updatedProjects", placeholder);
       return await knex("project_roles")
         .where({ id: p.id })
