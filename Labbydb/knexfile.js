@@ -1,8 +1,7 @@
 // Update with your config settings.
-const pgSettings = require('./config/db.js')
+const pgSettings = require("./config/db.js");
 
-const productionDbConnection =
-  process.env.DATABASE_URL || pgSettings;
+const productionDbConnection = process.env.AWS_URL || pgSettings;
 
 module.exports = {
   development: {
@@ -50,4 +49,3 @@ module.exports = {
     }
   }
 };
-
