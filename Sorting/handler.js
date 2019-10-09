@@ -253,28 +253,6 @@ const greedy = async (event, context, callback) => {
     }
   });
 
-  // const arr = await knex("project_roles")
-  //   .where("role_id", 5)
-  //   .select("person_id")
-  //   .update({ person_id: 1 });
-  // console.log("code code", arr);
-
-  // webStudents.forEach(async p => {
-  //   console.log("pee pee", p);
-  //   return await knex("project_roles")
-  //     .where("role_id", 5)
-  //     .update({ person_id: p });
-  // });
-
-  // for (let i = 0; i < webStudents.length; i++) {
-  //   let currentStudent = webStudents[i];
-
-  //   await knex("project_roles")
-  //     .where("role_id", 5)
-  //     .update({ person_id: webStudents[i] });
-  //   console.log("in for loop", i);
-  // }
-
   let projectroles = await knex("project_roles");
 
   let totalWeb = 0;
@@ -308,11 +286,6 @@ const greedy = async (event, context, callback) => {
       .where("id", projectroles[i].id)
       .update({ person_id: projectroles[i].person_id });
   });
-  // for (let i = 0; i <= projectroles.length; i++) {
-  //   await knex("project_roles")
-  //     .where("id", projectroles[i].id)
-  //     .update({ person_id: projectroles[i].person_id });
-  // }
 
   Promise.all(promises).then(async () => {
     console.log("DONE WITH ALL INSERTIONS");
@@ -372,3 +345,31 @@ greedy();
 // );
 
 // console.log("test", labbyBoy);
+
+// const arr = await knex("project_roles")
+//   .where("role_id", 5)
+//   .select("person_id")
+//   .update({ person_id: 1 });
+// console.log("code code", arr);
+
+// webStudents.forEach(async p => {
+//   console.log("pee pee", p);
+//   return await knex("project_roles")
+//     .where("role_id", 5)
+//     .update({ person_id: p });
+// });
+
+// for (let i = 0; i < webStudents.length; i++) {
+//   let currentStudent = webStudents[i];
+
+//   await knex("project_roles")
+//     .where("role_id", 5)
+//     .update({ person_id: webStudents[i] });
+//   console.log("in for loop", i);
+// }
+
+// for (let i = 0; i <= projectroles.length; i++) {
+//   await knex("project_roles")
+//     .where("id", projectroles[i].id)
+//     .update({ person_id: projectroles[i].person_id });
+// }
