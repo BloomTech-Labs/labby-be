@@ -242,7 +242,7 @@ const greedy = async (event, context, callback) => {
   const otherStudents = [];
 
   people.map(person => {
-    if (person.program === "Web") {
+    if (person.program === "WEB") {
       webStudents.push(person.id);
     } else if (person.program === "DS") {
       dataStudents.push(person.id);
@@ -259,18 +259,18 @@ const greedy = async (event, context, callback) => {
   let totalDS = 0;
   let totalUX = 0;
   let totalOther = 0;
-  projectroles.map(e => {
-    if (e.role_id == 5) {
-      e.person_id = webStudents[totalWeb];
+  projectroles.map(projects => {
+    if (projects.role_id == 5) {
+      projects.person_id = webStudents[totalWeb];
       totalWeb++;
-    } else if (e.role_id == 4) {
-      e.person_id = dataStudents[totalDS];
+    } else if (projects.role_id == 4) {
+      projects.person_id = dataStudents[totalDS];
       totalDS++;
-    } else if (e.role_id == 8) {
-      e.person_id = uxStudents[totalUX];
+    } else if (projects.role_id == 8) {
+      projects.person_id = uxStudents[totalUX];
       totalUX++;
     } else {
-      e.person_id = otherStudents[totalOther];
+      projects.person_id = otherStudents[totalOther];
       totalOther++;
     }
   });
@@ -306,70 +306,3 @@ const greedy = async (event, context, callback) => {
 };
 
 greedy();
-
-//grabbing project_roles
-// let projectRoles = await knex("project_roles");
-// we need filled projects for the loop
-// let filledProjects = 0;
-// a empty array so we can push all our role.ids
-
-// await knex("project_roles").then(async res => {
-//   // looping through projects
-//   projects.forEach(project => {
-//     let d = Math.round(projectRoles.length / projectsMap.length);
-//     console.log("during forEach", d);
-
-//     for (let i = 0; i < d; i++) {
-//       let current = projectRoles[i + filledProjects * d];
-//       // checking if the current item is null and if it is we move to the next if statement
-//       if (projectRoles[i + filledProjects * d] != null) {
-//         // checking if the current item is equal to d which is the amount of groups
-//         if (i == d - 1) {
-//           filledProjects++;
-//         }
-//         placeholder.push({ id: current.id, project_id: project.id });
-//       }
-//     }
-//   });
-//   //  putting/updating the placeholder array into the project_roles
-//   placeholder.map(async p => {
-//     console.log("updatedProjects", placeholder);
-//     return await knex("project_roles")
-//       .where({ id: p.id })
-//       .update({ project_id: p.project_id });
-//   });
-// });
-
-// const labbyBoy = knex.raw(
-//   `select role_id FROM project_roles WHERE role_id = 5`
-// );
-
-// console.log("test", labbyBoy);
-
-// const arr = await knex("project_roles")
-//   .where("role_id", 5)
-//   .select("person_id")
-//   .update({ person_id: 1 });
-// console.log("code code", arr);
-
-// webStudents.forEach(async p => {
-//   console.log("pee pee", p);
-//   return await knex("project_roles")
-//     .where("role_id", 5)
-//     .update({ person_id: p });
-// });
-
-// for (let i = 0; i < webStudents.length; i++) {
-//   let currentStudent = webStudents[i];
-
-//   await knex("project_roles")
-//     .where("role_id", 5)
-//     .update({ person_id: webStudents[i] });
-//   console.log("in for loop", i);
-// }
-
-// for (let i = 0; i <= projectroles.length; i++) {
-//   await knex("project_roles")
-//     .where("id", projectroles[i].id)
-//     .update({ person_id: projectroles[i].person_id });
-// }
