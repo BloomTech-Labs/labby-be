@@ -41,7 +41,20 @@ exports.seed = function(knex) {
         { id: 34, role_id: 4, project_id: 8 },
         { id: 35, role_id: 4, project_id: 9 },
         { id: 36, role_id: 4, project_id: 7 },
-        { id: 37, role_id: 4, project_id: 8 }
+        { id: 37, role_id: 4, project_id: 8 },
+        { id: 38, role_id: 8, project_id: 10 },
+        { id: 39, role_id: 8, project_id: 10 },
+        { id: 40, role_id: 8, project_id: 10 },
+        { id: 41, role_id: 4, project_id: 10 },
+        { id: 42, role_id: 4, project_id: 8 },
+        { id: 43, role_id: 4, project_id: 1 },
+        { id: 44, role_id: 4, project_id: 4 },
+        { id: 45, role_id: 5, project_id: 10 },
+        { id: 46, role_id: 5, project_id: 10 },
+        { id: 47, role_id: 5, project_id: 10 },
+        { id: 48, role_id: 5, project_id: 3 },
+        { id: 49, role_id: 5, project_id: 10 },
+        { id: 50, role_id: 5, project_id: 10 }
       ]);
     });
 };

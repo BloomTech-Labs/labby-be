@@ -64,6 +64,13 @@ exports.seed = function(knex) {
         {
           id: 9,
           product_id: 9,
+          name: "Labs-16-Fun",
+          start: "01/27/2018",
+          end: "03/19/2019"
+        },
+        {
+          id: 10,
+          product_id: 10,
           name: "Labs-16-Handyapp",
           start: "02/16/2018",
           end: "02/19/2019"
