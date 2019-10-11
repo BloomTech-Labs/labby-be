@@ -305,16 +305,16 @@ const greedy = async (event, context, callback) => {
   });
 
   // console.log("Project Roles assigned", projectroles);
-  // console.log("Total Web Students", totalWeb);
-  // console.log("total ds", totalDS);
-  // console.log("total ux", totalUX);
+  console.log("Total Web Students", totalWeb);
+  console.log("total ds", totalDS);
+  console.log("total ux", totalUX);
   // console.log("total other", totalOther);
 
   const promises = projectroles.map(async (p, i) => {
     await knex("project_roles")
       .where("id", projectroles[i].id)
       .update({ person_id: projectroles[i].person_id });
-    console.log("something", projectroles[i].person_id);
+    //console.log("something", projectroles[i].person_id);
   });
 
   Promise.all(promises).then(async () => {
