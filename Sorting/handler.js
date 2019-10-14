@@ -33,7 +33,7 @@ exports.postProject = async (event, context, callback) => {
     .insert(req.body)
     .returning("*")
     .then(res => {
-      return callback(res);
+      return callback(null, res);
     })
     .catch(err => {
       return callback(err);
