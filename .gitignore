@@ -1,9 +1,7 @@
 # package directories
-node_modules
-jspm_packages
-
+node_modules/
+jspm_packages/
 # Serverless directories
-.serverless
-
+serverless/
 #Environment Variables
-.db.js
+**/config/db.js
