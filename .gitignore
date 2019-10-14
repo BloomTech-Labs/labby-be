@@ -4,4 +4,4 @@ jspm_packages
 # Serverless directories
 .serverless
 #Environment Variables
-.config/db.js
+.labbydb/config/db.js
