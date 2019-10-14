@@ -13,7 +13,7 @@ const knex = require("knex")({
 });
 // get method  // gets all projects
 exports.getAllProjects = async (event, context, callback) => {
-  await knex("projects")
+  return await knex("projects")
     .then(projects => {
       knex.client.destroy();
       return callback(null, {
