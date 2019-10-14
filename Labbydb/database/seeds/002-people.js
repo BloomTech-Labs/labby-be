@@ -507,4 +507,4 @@ exports.seed = function(knex) {
         }
       ]);
     });
-}; 
+};
