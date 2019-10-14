@@ -1,4 +1,6 @@
-// all handlers/functions. functions have to be declared inside the .yml before declaring them here
+const express = require('express')
+const app = express()
+// all handlers/functions. functions have to be declared inside the .yml before declaring them here 
 "use strict";
 // pgsettings connections settings
 const pgSettings = require("./config/db.js");
@@ -9,7 +11,7 @@ const knex = require("knex")({
 });
 // get method  // gets all projects
 exports.getAllProjects = async (event, context, callback) => {
-  await knex("projects")
+  return await knex("projects")
     .then(projects => {
       knex.client.destroy();
       return callback(null, {
@@ -25,12 +27,11 @@ exports.getAllProjects = async (event, context, callback) => {
 // post a project
 //TODO: ADD IN ERROR CASES
 exports.postProject = async (event, context, callback) => {
-  // knex
-  knex("projects")
+  return await knex("projects")
     .insert(req.body)
     .returning("*")
     .then(res => {
-      return callback(res);
+      return callback(null, res);
     })
     .catch(err => {
       return callback(err);
@@ -38,8 +39,7 @@ exports.postProject = async (event, context, callback) => {
 };
 // get all people method
 exports.getAllPeople = async (event, context, callback) => {
-  await knex("people")
-    .select("*")
+  return await knex("people")
     .then(people => {
       knex.client.destroy();
       return callback(null, {
