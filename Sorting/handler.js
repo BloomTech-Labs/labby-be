@@ -41,8 +41,7 @@ exports.postProject = async (event, context, callback) => {
 };
 // get all people method
 exports.getAllPeople = async (event, context, callback) => {
-  await knex("people")
-    .select("*")
+  return await knex("people")
     .then(people => {
       knex.client.destroy();
       return callback(null, {
