@@ -149,6 +149,261 @@ exports.projectRoles = async (event, context, callback) => {
   }
 };
 
+exports.inputStudents = async (event, context, callback) => {
+  console.log("Starting Greedy Function...");
+
+  const people = await knex("people").select(
+    "people.id",
+    "people.program",
+    "people.time_zone"
+  );
+
+  //console.log("peeps", people);
+
+  const webStudents = [];
+
+  const dataStudents = [];
+
+  const uxStudents = [];
+
+  const otherStudents = [];
+
+  people.map(person => {
+    if (person.program === "WEB") {
+      webStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
+    } else if (person.program === "DS") {
+      dataStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
+    } else if (person.program === "UX") {
+      uxStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
+    } else {
+      otherStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
+    }
+  });
+
+  //console.log("webbies", webStudents);
+
+  webStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+  uxStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+  dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+
+  console.log("webbbbbbiieess", webStudents);
+  // console.log("uxxx", uxStudents);
+  // console.log("dataaa", dataStudents);
+
+  let projectroles = await knex("project_roles");
+
+  let totalWeb = 0;
+  let totalDS = 0;
+  let totalUX = 0;
+  let totalOther = 0;
+
+  projectroles.map(projects => {
+    if (projects.role_id == 5) {
+      projects.person_id = webStudents[totalWeb].person_id;
+      projects.person_timezone = webStudents[totalWeb].person_timezone;
+      totalWeb++;
+    } else if (projects.role_id == 4) {
+      projects.person_id = dataStudents[totalDS].person_id;
+      projects.person_timezone = dataStudents[totalDS].person_timezone;
+      totalDS++;
+    } else if (projects.role_id == 8) {
+      projects.person_id = uxStudents[totalUX].person_id;
+      projects.person_timezone = uxStudents[totalUX].person_timezone;
+      totalUX++;
+    } else {
+      projects.person_id = otherStudents[totalOther].person_id;
+      projects.person_timezone = otherStudents[totalOther].person_timezone;
+      totalOther++;
+    }
+  });
+
+  //projectroles.sort((a, b) => (a.person_timezone > b.person_timezone ? 1 : -1));
+
+  //console.log("testy1", projectroles);
+
+  // console.log(
+  // "Project Roles assigned",
+  // projectroles
+  // projectroles.sort((a, b) =>
+  //   a.person_timezone < b.person_timezone ? 1 : -1
+  // )
+  //);
+  // console.log("Total Web Students", totalWeb);
+  // console.log("total ds", totalDS);
+  // console.log("total ux", totalUX);
+  // console.log("total other", totalOther);
+
+  // const promises = projectroles.map(async (p, i) => {
+  //   await knex("project_roles")
+  //     .where("id", p.id)
+  //     .update({
+  //       person_id: p.person_id,
+  //       time_zone: p.person_timezone
+  //     });
+  //   //console.log("something", projectroles[i].timezone);
+  // });
+
+  projectroles.map(async (p, i) => {
+    await knex("project_roles")
+      .where("id", p.id)
+      .update({
+        person_id: p.person_id,
+        time_zone: p.person_timezone
+      });
+    //console.log("something", projectroles[i].timezone);
+  });
+
+  // Promise.all(promises).then(async () => {
+  console.log("DONE WITH ALL INSERTIONS");
+  try {
+    const allProjects = await knex("project_roles");
+    knex.client.destroy();
+    console.log(allProjects);
+    return callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(allProjects)
+    });
+  } catch (err) {
+    console.log(err.message);
+    return callback(null, {
+      statusCode: 500,
+      body: JSON.stringify(err.message)
+    });
+  }
+  // });
+};
+
+// exports.inputStudents = async (event, context, callback) => {
+//   console.log("Starting inputStudents Function...");
+
+//   const people = await knex("people").select(
+//     "people.id",
+//     "people.program",
+//     "people.time_zone"
+//   );
+
+//   //console.log("peeps", people);
+
+//   const webStudents = [];
+
+//   const dataStudents = [];
+
+//   const uxStudents = [];
+
+//   const otherStudents = [];
+
+//   people.map(person => {
+//     if (person.program === "WEB") {
+//       webStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else if (person.program === "DS") {
+//       dataStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else if (person.program === "UX") {
+//       uxStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else {
+//       otherStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     }
+//   });
+
+//   //console.log("webbies", webStudents);
+
+//   webStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+//   uxStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+//   dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+
+//   // console.log("webbbbbbiieess", webStudents);
+//   // console.log("uxxx", uxStudents);
+//   // console.log("dataaa", dataStudents);
+
+//   let projectroles = await knex("project_roles");
+
+//   let totalWeb = 0;
+//   let totalDS = 0;
+//   let totalUX = 0;
+//   let totalOther = 0;
+
+//   projectroles.map(projects => {
+//     if (projects.role_id == 5) {
+//       projects.person_id = webStudents[totalWeb].person_id;
+
+//       totalWeb++;
+//     } else if (projects.role_id == 4) {
+//       projects.person_id = dataStudents[totalDS].person_id;
+//       totalDS++;
+//     } else if (projects.role_id == 8) {
+//       projects.person_id = uxStudents[totalUX].person_id;
+//       totalUX++;
+//     } else {
+//       projects.person_id = otherStudents[totalOther].person_id;
+//       totalOther++;
+//     }
+//   });
+
+//   // console.log("Project Roles assigned", projectroles);
+//   console.log("Total Web Students", totalWeb);
+//   console.log("total ds", totalDS);
+//   console.log("total ux", totalUX);
+//   // console.log("total other", totalOther);
+
+//   // const promises = projectroles.map(async (p, i) => {
+//   //   console.log("inside promies");
+//   //   await knex("project_roles")
+//   //     .where("id", projectroles[i].id)
+//   //     .update({ person_id: projectroles[i].person_id });
+//   //   console.log("something", projectroles[i].person_id);
+//   // });
+
+//   projectroles.map(async (p, i) => {
+//     //console.log("inside promies");
+//     await knex("project_roles")
+//       .where("id", projectroles[i].id)
+//       .update({ person_id: projectroles[i].person_id });
+//     //console.log("something", projectroles[i].person_id);
+//   });
+
+//   // Promise.all(promises).then(async () => {
+//   console.log("DONE WITH ALL INSERTIONS");
+//   try {
+//     const allProjects = await knex("project_roles");
+//     knex.client.destroy();
+//     console.log(allProjects);
+//     return callback(null, {
+//       statusCode: 200,
+//       body: JSON.stringify(allProjects)
+//     });
+//   } catch (err) {
+//     console.log(err.message);
+//     return callback(null, {
+//       statusCode: 500,
+//       body: JSON.stringify(err.message)
+//     });
+//   }
+//   // });
+// };
+
 // const projectRoles = async (event, context, callback) => {
 //   console.log("Starting Project Roles Function...");
 
@@ -278,8 +533,8 @@ const greedy = async (event, context, callback) => {
   dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
 
   console.log("webbbbbbiieess", webStudents);
-  console.log("uxxx", uxStudents);
-  console.log("dataaa", dataStudents);
+  // console.log("uxxx", uxStudents);
+  // console.log("dataaa", dataStudents);
 
   let projectroles = await knex("project_roles");
 
@@ -291,30 +546,47 @@ const greedy = async (event, context, callback) => {
   projectroles.map(projects => {
     if (projects.role_id == 5) {
       projects.person_id = webStudents[totalWeb].person_id;
+      projects.person_timezone = webStudents[totalWeb].person_timezone;
       totalWeb++;
     } else if (projects.role_id == 4) {
       projects.person_id = dataStudents[totalDS].person_id;
+      projects.person_timezone = dataStudents[totalDS].person_timezone;
       totalDS++;
     } else if (projects.role_id == 8) {
       projects.person_id = uxStudents[totalUX].person_id;
+      projects.person_timezone = uxStudents[totalUX].person_timezone;
       totalUX++;
     } else {
       projects.person_id = otherStudents[totalOther].person_id;
+      projects.person_timezone = otherStudents[totalOther].person_timezone;
       totalOther++;
     }
   });
 
-  // console.log("Project Roles assigned", projectroles);
-  console.log("Total Web Students", totalWeb);
-  console.log("total ds", totalDS);
-  console.log("total ux", totalUX);
+  //projectroles.sort((a, b) => (a.person_timezone > b.person_timezone ? 1 : -1));
+
+  //console.log("testy1", projectroles);
+
+  // console.log(
+  // "Project Roles assigned",
+  // projectroles
+  // projectroles.sort((a, b) =>
+  //   a.person_timezone < b.person_timezone ? 1 : -1
+  // )
+  //);
+  // console.log("Total Web Students", totalWeb);
+  // console.log("total ds", totalDS);
+  // console.log("total ux", totalUX);
   // console.log("total other", totalOther);
 
   const promises = projectroles.map(async (p, i) => {
     await knex("project_roles")
-      .where("id", projectroles[i].id)
-      .update({ person_id: projectroles[i].person_id });
-    //console.log("something", projectroles[i].person_id);
+      .where("id", p.id)
+      .update({
+        person_id: p.person_id,
+        time_zone: p.person_timezone
+      });
+    //console.log("something", projectroles[i].timezone);
   });
 
   Promise.all(promises).then(async () => {
@@ -323,18 +595,138 @@ const greedy = async (event, context, callback) => {
       const allProjects = await knex("project_roles");
       knex.client.destroy();
       console.log(allProjects);
-      // return callback(null, {
-      //   statusCode: 200,
-      //   body: JSON.stringify(allProjects)
-      // });
+      return callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(allProjects)
+      });
     } catch (err) {
       console.log(err.message);
-      // return callback(null, {
-      //   statusCode: 500,
-      //   body: JSON.stringify(err.message)
-      // });
+      return callback(null, {
+        statusCode: 500,
+        body: JSON.stringify(err.message)
+      });
     }
   });
 };
 
 greedy();
+
+// const inputStudents = async (event, context, callback) => {
+//   console.log("Starting inputStudents Function...");
+
+//   const people = await knex("people").select(
+//     "people.id",
+//     "people.program",
+//     "people.time_zone"
+//   );
+
+//   //console.log("peeps", people);
+
+//   const webStudents = [];
+
+//   const dataStudents = [];
+
+//   const uxStudents = [];
+
+//   const otherStudents = [];
+
+//   people.map(person => {
+//     if (person.program === "WEB") {
+//       webStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else if (person.program === "DS") {
+//       dataStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else if (person.program === "UX") {
+//       uxStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     } else {
+//       otherStudents.push({
+//         person_timezone: parseInt(person.time_zone, 10),
+//         person_id: person.id
+//       });
+//     }
+//   });
+
+//   //console.log("webbies", webStudents);
+
+//   webStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+//   uxStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+//   dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+
+//   console.log("webbbbbbiieess", webStudents);
+//   console.log("uxxx", uxStudents);
+//   console.log("dataaa", dataStudents);
+
+//   let projectroles = await knex("project_roles");
+
+//   let totalWeb = 0;
+//   let totalDS = 0;
+//   let totalUX = 0;
+//   let totalOther = 0;
+
+//   projectroles.map(projects => {
+//     if (projects.role_id == 5) {
+//       projects.person_id = webStudents[totalWeb].person_id;
+//       totalWeb++;
+//     } else if (projects.role_id == 4) {
+//       projects.person_id = dataStudents[totalDS].person_id;
+//       totalDS++;
+//     } else if (projects.role_id == 8) {
+//       projects.person_id = uxStudents[totalUX].person_id;
+//       totalUX++;
+//     } else {
+//       projects.person_id = otherStudents[totalOther].person_id;
+//       totalOther++;
+//     }
+//   });
+
+//   // console.log("Project Roles assigned", projectroles);
+//   console.log("Total Web Students", totalWeb);
+//   console.log("total ds", totalDS);
+//   console.log("total ux", totalUX);
+//   // console.log("total other", totalOther);
+
+//   // const promises = projectroles.map(async (p, i) => {
+//   //   console.log("inside promies");
+//   //   await knex("project_roles")
+//   //     .where("id", projectroles[i].id)
+//   //     .update({ person_id: projectroles[i].person_id });
+//   //   console.log("something", projectroles[i].person_id);
+//   // });
+
+//   projectroles.map(async (p, i) => {
+//     //console.log("inside promies");
+//     await knex("project_roles")
+//       .where("id", projectroles[i].id)
+//       .update({ person_id: projectroles[i].person_id });
+//     //console.log("something", projectroles[i].person_id);
+//   });
+
+//   // Promise.all(promises).then(async () => {
+//   console.log("DONE WITH ALL INSERTIONS", projectroles);
+//   try {
+//     const allProjects = await knex("project_roles");
+//     knex.client.destroy();
+//     console.log(allProjects);
+//     return callback(null, {
+//       statusCode: 200,
+//       body: JSON.stringify(allProjects)
+//     });
+//   } catch (err) {
+//     console.log(err.message);
+//     return callback(null, {
+//       statusCode: 500,
+//       body: JSON.stringify(err.message)
+//     });
+//   }
+//   // });
+// };
+
+// inputStudents();

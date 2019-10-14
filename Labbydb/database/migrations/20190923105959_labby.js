@@ -119,6 +119,7 @@ exports.up = function(knex) {
     })
     .createTable("project_roles", project_roles => {
       project_roles.increments();
+      project_roles.string("time_zone", 255);
       project_roles
         .integer("person_id")
         .unsigned()
