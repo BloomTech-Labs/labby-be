@@ -1,14 +1,7 @@
 // Update with your config settings.
-const pgSettings = {
-  host: "labbydatabase.cu5flbcmyfuw.us-east-1.rds.amazonaws.com",
-  user: "postgres",
-  password: "password",
-  port: 5432,
-  database: "postgres"}; 
+const pgSettings = require("./config/db.js");
 
-const productionDbConnection =
-  //process.env.HEROKU_POSTGRESQL_AMBER_URL || localPg;
-  process.env.DATABASE_URL || pgSettings;
+const productionDbConnection = process.env.AWS_URL || pgSettings;
 
 module.exports = {
   development: {
@@ -56,4 +49,3 @@ module.exports = {
     }
   }
 };
-

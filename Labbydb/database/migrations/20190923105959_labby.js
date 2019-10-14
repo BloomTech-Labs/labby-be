@@ -122,7 +122,7 @@ exports.up = function(knex) {
       project_roles
         .integer("person_id")
         .unsigned()
-        .notNullable()
+        // .notNullable()
         .references("id")
         .inTable("people")
         .onUpdate("CASCADE")

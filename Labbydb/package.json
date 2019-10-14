@@ -4,7 +4,7 @@
   "description": "",
   "main": "db_config.js",
   "dependencies": {
-    "knex": "^0.19.4",
+    "knex": "^0.19.5",
     "knex-cleaner": "^1.3.0",
     "pg": "^7.12.1",
     "postgresql-easy": "^1.2.5",
