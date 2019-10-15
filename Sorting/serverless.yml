@@ -66,12 +66,6 @@ functions:
       - http:
           path: getallprojects
           method: get
-  postProject:
-    handler: handler.postProject
-    events:
-      - http:
-          path: projects/create
-          method: post
   getAllPeople:
     handler: handler.getAllPeople
     events:

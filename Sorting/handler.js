@@ -24,19 +24,6 @@ exports.getAllProjects = async (event, context, callback) => {
       return callback(err.message);
     });
 };
-// post a project
-//TODO: ADD IN ERROR CASES
-exports.postProject = async (event, context, callback) => {
-  return await knex("projects")
-    .insert(req.body)
-    .returning("*")
-    .then(res => {
-      return callback(null, res);
-    })
-    .catch(err => {
-      return callback(err);
-    });
-};
 // get all people method
 exports.getAllPeople = async (event, context, callback) => {
   return await knex("people")
