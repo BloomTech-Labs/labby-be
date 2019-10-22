@@ -66,12 +66,6 @@ functions:
       - http:
           path: getallprojects
           method: get
-  postProject:
-    handler: handler.postProject
-    events:
-      - http:
-          path: projects/create
-          method: post
   getAllPeople:
     handler: handler.getAllPeople
     events:
@@ -95,6 +89,12 @@ functions:
     events:
       - http:
           path: projectroles
+          method: get
+  inputStudents:
+    handler: handler.inputStudents
+    events:
+      - http:
+          path: inputstudents
           method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

@@ -119,6 +119,7 @@ exports.up = function(knex) {
     })
     .createTable("project_roles", project_roles => {
       project_roles.increments();
+      project_roles.string("time_zone", 255);
       project_roles
         .integer("person_id")
         .unsigned()
@@ -170,10 +171,14 @@ exports.up = function(knex) {
         .inTable("products")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
+    })
+    .createTable("project_preferences", project_preferences => {
+      project_preferences.json("preferences");
     });
 };
 exports.down = function(knex) {
   return knex.schema
+    .dropTableIfExists("project_preferences")
     .dropTableIfExists("product_roles")
     .dropTableIfExists("project_roles")
     .dropTableIfExists("lambda_roles")

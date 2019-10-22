@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
-// all handlers/functions. functions have to be declared inside the .yml before declaring them here 
-"use strict";
+// const express = require("express");
+// const app = express();
+// all handlers/functions. functions have to be declared inside the .yml before declaring them here
+("use strict");
 // pgsettings connections settings
 const pgSettings = require("./config/db.js");
 // connects to aws database
@@ -22,19 +22,6 @@ exports.getAllProjects = async (event, context, callback) => {
     .catch(err => {
       knex.client.destroy();
       return callback(err.message);
-    });
-};
-// post a project
-//TODO: ADD IN ERROR CASES
-exports.postProject = async (event, context, callback) => {
-  return await knex("projects")
-    .insert(req.body)
-    .returning("*")
-    .then(res => {
-      return callback(null, res);
-    })
-    .catch(err => {
-      return callback(err);
     });
 };
 // get all people method
@@ -149,12 +136,15 @@ exports.projectRoles = async (event, context, callback) => {
   }
 };
 
-// getAllProjects();
+exports.inputStudents = async (event, context, callback) => {
+  console.log("Starting inputStudents Function...");
 
-const greedy = async (event, context, callback) => {
-  console.log("Starting Greedy Function...");
-
-  const people = await knex("people").select("people.id", "people.program");
+  //grabbing students by their id, program, and timezone from people table in Postgres DB
+  const people = await knex("people").select(
+    "people.id",
+    "people.program",
+    "people.time_zone"
+  );
 
   const webStudents = [];
 
@@ -164,17 +154,36 @@ const greedy = async (event, context, callback) => {
 
   const otherStudents = [];
 
+  //mapping over students and pushing them into different arrays based on program track
+  //changing their timezone from a string into a number to allow sorting of timezones
   people.map(person => {
-    if (person.program === "Web") {
-      webStudents.push(person.id);
+    if (person.program === "WEB") {
+      webStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
     } else if (person.program === "DS") {
-      dataStudents.push(person.id);
+      dataStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
     } else if (person.program === "UX") {
-      uxStudents.push(person.id);
+      uxStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
     } else {
-      otherStudents.push(person.id);
+      otherStudents.push({
+        person_timezone: parseInt(person.time_zone, 10),
+        person_id: person.id
+      });
     }
   });
+
+  //sorting the arrays of students by their timezone starting in Europe/Africa
+  webStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+  uxStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+  dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
 
   let projectroles = await knex("project_roles");
 
@@ -182,51 +191,53 @@ const greedy = async (event, context, callback) => {
   let totalDS = 0;
   let totalUX = 0;
   let totalOther = 0;
-  projectroles.map(e => {
-    if (e.role_id == 5) {
-      e.person_id = webStudents[totalWeb];
+
+  //mapping through project roles table and assigning students a role id based on their track
+  projectroles.map(projects => {
+    if (projects.role_id == 5) {
+      projects.person_id = webStudents[totalWeb].person_id;
+      projects.person_timezone = webStudents[totalWeb].person_timezone;
       totalWeb++;
-    } else if (e.role_id == 4) {
-      e.person_id = dataStudents[totalDS];
+    } else if (projects.role_id == 4) {
+      projects.person_id = dataStudents[totalDS].person_id;
+      projects.person_timezone = dataStudents[totalDS].person_timezone;
       totalDS++;
-    } else if (e.role_id == 8) {
-      e.person_id = uxStudents[totalUX];
+    } else if (projects.role_id == 8) {
+      projects.person_id = uxStudents[totalUX].person_id;
+      projects.person_timezone = uxStudents[totalUX].person_timezone;
       totalUX++;
     } else {
-      e.person_id = otherStudents[totalOther];
+      projects.person_id = otherStudents[totalOther].person_id;
+      projects.person_timezone = otherStudents[totalOther].person_timezone;
       totalOther++;
     }
   });
 
-  console.log("Project Roles assigned", projectroles);
-  console.log("Total Web Students", totalWeb);
-  console.log("total ds", totalDS);
-  console.log("total ux", totalUX);
-  console.log("total other", totalOther);
-
-  const promises = projectroles.map(async (p, i) => {
+  //inserting students into projects based on their role id in descending timezone order
+  projectroles.map(async (p, i) => {
     await knex("project_roles")
-      .where("id", projectroles[i].id)
-      .update({ person_id: projectroles[i].person_id });
+      .where("id", p.id)
+      .update({
+        person_id: p.person_id,
+        time_zone: p.person_timezone
+      });
   });
 
-  Promise.all(promises).then(async () => {
-    console.log("DONE WITH ALL INSERTIONS");
-    try {
-      const allProjects = await knex("project_roles");
-      knex.client.destroy();
-      return callback(null, {
-        statusCode: 200,
-        body: JSON.stringify(allProjects)
-      });
-    } catch (err) {
-      return callback(null, {
-        statusCode: 500,
-        body: JSON.stringify(err.message)
-      });
-    }
-  });
+  console.log("DONE WITH ALL INSERTIONS");
+  //calling the updated project roles table
+  try {
+    const allProjects = await knex("project_roles");
+    knex.client.destroy();
+    console.log(allProjects);
+    return callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(allProjects)
+    });
+  } catch (err) {
+    console.log(err.message);
+    return callback(null, {
+      statusCode: 500,
+      body: JSON.stringify(err.message)
+    });
+  }
 };
-
-greedy();
-

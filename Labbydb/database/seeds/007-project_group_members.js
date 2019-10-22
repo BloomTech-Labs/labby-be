@@ -13,7 +13,8 @@ exports.seed = function(knex) {
         { project_id: 6, project_group_id: 6 },
         { project_id: 7, project_group_id: 7 },
         { project_id: 8, project_group_id: 8 },
-        { project_id: 9, project_group_id: 9 }
+        { project_id: 9, project_group_id: 9 },
+        { project_id: 10, project_group_id: 10 }
       ]);
     });
-}; 
+};

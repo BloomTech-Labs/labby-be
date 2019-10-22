@@ -12,8 +12,8 @@ exports.seed = function(knex) {
           github_id: "337941841924896",
           first_name: "Edsel",
           last_name: "Earie",
-          time_zone: "Europe/Berlin",
-          program: "Web"
+          time_zone: "-5:00",
+          program: "WEB"
         },
         {
           id: 2,
@@ -22,8 +22,8 @@ exports.seed = function(knex) {
           github_id: "3588699799087310",
           first_name: "Teresita",
           last_name: "Mitchall",
-          time_zone: "Asia/Chongqing",
-          program: "Web"
+          time_zone: "-5:00",
+          program: "WEB"
         },
         {
           id: 3,
@@ -32,8 +32,8 @@ exports.seed = function(knex) {
           github_id: "3567714775574473",
           first_name: "Leroy",
           last_name: "Cornely",
-          time_zone: "Europe/Istanbul",
-          program: "Web"
+          time_zone: "-6:00",
+          program: "WEB"
         },
         {
           id: 4,
@@ -42,8 +42,8 @@ exports.seed = function(knex) {
           github_id: "5641827645142803",
           first_name: "Harmony",
           last_name: "Benedtti",
-          time_zone: "Africa/Monrovia",
-          program: "Web"
+          time_zone: "-7:00",
+          program: "WEB"
         },
         {
           id: 5,
@@ -52,8 +52,8 @@ exports.seed = function(knex) {
           github_id: "6304259957011753976",
           first_name: "Selby",
           last_name: "Beaushaw",
-          time_zone: "Africa/Dakar",
-          program: "Web"
+          time_zone: "-8:00",
+          program: "WEB"
         },
         {
           id: 6,
@@ -62,8 +62,8 @@ exports.seed = function(knex) {
           github_id: "5602235244240076",
           first_name: "Corrina",
           last_name: "Briddock",
-          time_zone: "Africa/Blantyre",
-          program: "Web"
+          time_zone: "+1:00",
+          program: "WEB"
         },
         {
           id: 7,
@@ -72,8 +72,8 @@ exports.seed = function(knex) {
           github_id: "4913202481641645",
           first_name: "Brennan",
           last_name: "Gilliard",
-          time_zone: "Asia/Jakarta",
-          program: "Web"
+          time_zone: "+2:00",
+          program: "WEB"
         },
         {
           id: 8,
@@ -82,8 +82,8 @@ exports.seed = function(knex) {
           github_id: "5602229742188248009",
           first_name: "Elspeth",
           last_name: "Emblem",
-          time_zone: "Asia/Manila",
-          program: "Web"
+          time_zone: "-6:00",
+          program: "WEB"
         },
         {
           id: 9,
@@ -92,8 +92,8 @@ exports.seed = function(knex) {
           github_id: "3589560945764542",
           first_name: "Mollie",
           last_name: "Aulds",
-          time_zone: "America/Montreal",
-          program: "Web"
+          time_zone: "-6:00",
+          program: "WEB"
         },
         {
           id: 10,
@@ -102,8 +102,8 @@ exports.seed = function(knex) {
           github_id: "560222254777938737",
           first_name: "Gilberto",
           last_name: "Pauletto",
-          time_zone: "Europe/Uzhgorod",
-          program: "Web"
+          time_zone: "-8:00",
+          program: "WEB"
         },
         {
           id: 11,
@@ -112,8 +112,8 @@ exports.seed = function(knex) {
           github_id: "3543631702328485",
           first_name: "Pearla",
           last_name: "Witchard",
-          time_zone: "America/Edmonton",
-          program: "Web"
+          time_zone: "+2:00",
+          program: "WEB"
         },
         {
           id: 12,
@@ -122,8 +122,8 @@ exports.seed = function(knex) {
           github_id: "5273941833539566",
           first_name: "Berkley",
           last_name: "Warne",
-          time_zone: "Asia/Tokyo",
-          program: "Web"
+          time_zone: "+1:00",
+          program: "WEB"
         },
         {
           id: 13,
@@ -132,18 +132,18 @@ exports.seed = function(knex) {
           github_id: "6371257221261484",
           first_name: "Ludovico",
           last_name: "Bilsland",
-          time_zone: "Europe/Lisbon",
-          program: "Web"
+          time_zone: "-5:00",
+          program: "WEB"
         },
         {
           id: 14,
-          email: "sminchindend@prweb.com",
+          email: "sminchindend@prWEB.com",
           slack_id: "5458347323195983",
           github_id: "3556043477839155",
           first_name: "Stefano",
           last_name: "Minchinden",
-          time_zone: "Europe/Paris",
-          program: "Web"
+          time_zone: "-6:00",
+          program: "WEB"
         },
         {
           id: 15,
@@ -152,8 +152,8 @@ exports.seed = function(knex) {
           github_id: "201617379756735",
           first_name: "Lindie",
           last_name: "Wellesley",
-          time_zone: "Asia/Shanghai",
-          program: "Web"
+          time_zone: "-7:00",
+          program: "WEB"
         },
         {
           id: 16,
@@ -162,8 +162,8 @@ exports.seed = function(knex) {
           github_id: "3536938416886461",
           first_name: "Guy",
           last_name: "Bumby",
-          time_zone: "America/Argentina/Cordoba",
-          program: "Web"
+          time_zone: "-8:00",
+          program: "WEB"
         },
         {
           id: 17,
@@ -172,7 +172,7 @@ exports.seed = function(knex) {
           github_id: "201903363123383",
           first_name: "Corinna",
           last_name: "Bulter",
-          time_zone: "Europe/Paris",
+          time_zone: "-8:00",
           program: "UX"
         },
         {
@@ -182,7 +182,7 @@ exports.seed = function(knex) {
           github_id: "3542297669503709",
           first_name: "Almire",
           last_name: "Brittoner",
-          time_zone: "Asia/Kuala_Lumpur",
+          time_zone: "-7:00",
           program: "UX"
         },
         {
@@ -192,7 +192,7 @@ exports.seed = function(knex) {
           github_id: "3546407660682487",
           first_name: "Linette",
           last_name: "Schoolfield",
-          time_zone: "Asia/Makassar",
+          time_zone: "-5:00",
           program: "UX"
         },
         {
@@ -202,7 +202,7 @@ exports.seed = function(knex) {
           github_id: "372301298779440",
           first_name: "Demetria",
           last_name: "Romei",
-          time_zone: "Asia/Harbin",
+          time_zone: "-8:00",
           program: "UX"
         },
         {
@@ -212,7 +212,7 @@ exports.seed = function(knex) {
           github_id: "5002356350119486",
           first_name: "Diannne",
           last_name: "Longworthy",
-          time_zone: "Europe/Zaporozhye",
+          time_zone: "-7:00",
           program: "UX"
         },
         {
@@ -222,7 +222,7 @@ exports.seed = function(knex) {
           github_id: "3570774451672988",
           first_name: "Ambrose",
           last_name: "Cordery",
-          time_zone: "Asia/Shanghai",
+          time_zone: "-6:00",
           program: "UX"
         },
         {
@@ -232,7 +232,7 @@ exports.seed = function(knex) {
           github_id: "3528250596469005",
           first_name: "Ab",
           last_name: "Reuven",
-          time_zone: "Africa/Lagos",
+          time_zone: "-6:00",
           program: "UX"
         },
         {
@@ -242,7 +242,7 @@ exports.seed = function(knex) {
           github_id: "630454253352733430",
           first_name: "Elora",
           last_name: "Kleanthous",
-          time_zone: "Asia/Shanghai",
+          time_zone: "-5:00",
           program: "UX"
         },
         {
@@ -252,7 +252,7 @@ exports.seed = function(knex) {
           github_id: "4208657021692",
           first_name: "Malynda",
           last_name: "Shegog",
-          time_zone: "Asia/Tashkent",
+          time_zone: "-8:00",
           program: "UX"
         },
         {
@@ -262,7 +262,7 @@ exports.seed = function(knex) {
           github_id: "3552232579441010",
           first_name: "Padraic",
           last_name: "Ching",
-          time_zone: "Europe/Prague",
+          time_zone: "-7:00",
           program: "UX"
         },
         {
@@ -272,7 +272,7 @@ exports.seed = function(knex) {
           github_id: "3584809646502684",
           first_name: "Allan",
           last_name: "Heare",
-          time_zone: "America/Tegucigalpa",
+          time_zone: "-6:00",
           program: "DS"
         },
         {
@@ -282,7 +282,7 @@ exports.seed = function(knex) {
           github_id: "6333290067365255766",
           first_name: "Melania",
           last_name: "Adamsky",
-          time_zone: "Asia/Jakarta",
+          time_zone: "-8:00",
           program: "DS"
         },
         {
@@ -292,7 +292,7 @@ exports.seed = function(knex) {
           github_id: "5504507481943961",
           first_name: "Jessie",
           last_name: "Gerriessen",
-          time_zone: "Africa/Juba",
+          time_zone: "+1:00",
           program: "DS"
         },
         {
@@ -302,7 +302,7 @@ exports.seed = function(knex) {
           github_id: "6333803009377898",
           first_name: "Xylia",
           last_name: "Gillbard",
-          time_zone: "Asia/Manila",
+          time_zone: "+2:00",
           program: "DS"
         },
         {
@@ -312,7 +312,7 @@ exports.seed = function(knex) {
           github_id: "3582771076603444",
           first_name: "Delinda",
           last_name: "Learmount",
-          time_zone: "Asia/Chongqing",
+          time_zone: "-5:00",
           program: "DS"
         },
         {
@@ -322,7 +322,7 @@ exports.seed = function(knex) {
           github_id: "4041375349321",
           first_name: "Hurley",
           last_name: "Christopher",
-          time_zone: "Asia/Jakarta",
+          time_zone: "-8:00",
           program: "DS"
         },
         {
@@ -332,7 +332,7 @@ exports.seed = function(knex) {
           github_id: "56022103912804174",
           first_name: "Violet",
           last_name: "Kopta",
-          time_zone: "Asia/Jakarta",
+          time_zone: "-7:00",
           program: "DS"
         },
         {
@@ -342,7 +342,7 @@ exports.seed = function(knex) {
           github_id: "6762333293721311924",
           first_name: "Rolfe",
           last_name: "Sargeaunt",
-          time_zone: "Africa/Lagos",
+          time_zone: "-6:00",
           program: "DS"
         },
         {
@@ -352,7 +352,7 @@ exports.seed = function(knex) {
           github_id: "3578558405125728",
           first_name: "Rolf",
           last_name: "O'Hannigan",
-          time_zone: "Asia/Makassar",
+          time_zone: "-5:00",
           program: "DS"
         },
         {
@@ -362,7 +362,7 @@ exports.seed = function(knex) {
           github_id: "4405027359725658",
           first_name: "Goldarina",
           last_name: "Ratter",
-          time_zone: "America/Asuncion",
+          time_zone: "-8:00",
           program: "DS"
         },
         {
@@ -372,7 +372,7 @@ exports.seed = function(knex) {
           github_id: "56022168220220942",
           first_name: "Pearla",
           last_name: "Saltwell",
-          time_zone: "Asia/Chongqing",
+          time_zone: "-6:00",
           program: "DS"
         },
         {
@@ -382,8 +382,8 @@ exports.seed = function(knex) {
           github_id: "6759818918167813",
           first_name: "Jamie",
           last_name: "Mabey",
-          time_zone: "Asia/Kabul",
-          program: "AND"
+          time_zone: "-8:00",
+          program: "UX"
         },
         {
           id: 39,
@@ -392,8 +392,8 @@ exports.seed = function(knex) {
           github_id: "5190198866359707",
           first_name: "Gabriella",
           last_name: "Mulhall",
-          time_zone: "Asia/Shanghai",
-          program: "AND"
+          time_zone: "-8:00",
+          program: "UX"
         },
         {
           id: 40,
@@ -402,8 +402,8 @@ exports.seed = function(knex) {
           github_id: "675941280819660613",
           first_name: "Valentijn",
           last_name: "Nellis",
-          time_zone: "Asia/Bangkok",
-          program: "AND"
+          time_zone: "-5:00",
+          program: "UX"
         },
         {
           id: 41,
@@ -412,8 +412,8 @@ exports.seed = function(knex) {
           github_id: "3534531724053007",
           first_name: "Meris",
           last_name: "Georgiev",
-          time_zone: "Asia/Jakarta",
-          program: "AND"
+          time_zone: "-7:00",
+          program: "DS"
         },
         {
           id: 42,
@@ -422,8 +422,8 @@ exports.seed = function(knex) {
           github_id: "6709412969407525",
           first_name: "Nikola",
           last_name: "Mosedill",
-          time_zone: "Asia/Shanghai",
-          program: "AND"
+          time_zone: "-7:00",
+          program: "DS"
         },
         {
           id: 43,
@@ -432,8 +432,8 @@ exports.seed = function(knex) {
           github_id: "5641820826124310",
           first_name: "Brook",
           last_name: "Sorrel",
-          time_zone: "Europe/Kaliningrad",
-          program: "AND"
+          time_zone: "-8:00",
+          program: "DS"
         },
         {
           id: 44,
@@ -442,8 +442,8 @@ exports.seed = function(knex) {
           github_id: "3542642957968637",
           first_name: "Jaimie",
           last_name: "Mitrovic",
-          time_zone: "Africa/Kampala",
-          program: "AND"
+          time_zone: "-6:00",
+          program: "DS"
         },
         {
           id: 45,
@@ -452,8 +452,8 @@ exports.seed = function(knex) {
           github_id: "3544167955624097",
           first_name: "Gayler",
           last_name: "Salery",
-          time_zone: "Asia/Bangkok",
-          program: "IOS"
+          time_zone: "-7:00",
+          program: "WEB"
         },
         {
           id: 46,
@@ -462,8 +462,8 @@ exports.seed = function(knex) {
           github_id: "3555819959061793",
           first_name: "Yvon",
           last_name: "Jeannaud",
-          time_zone: "Asia/Manila",
-          program: "IOS"
+          time_zone: "-8:00",
+          program: "WEB"
         },
         {
           id: 47,
@@ -472,8 +472,8 @@ exports.seed = function(knex) {
           github_id: "3556549291497137",
           first_name: "Hy",
           last_name: "Gidney",
-          time_zone: "America/Bogota",
-          program: "IOS"
+          time_zone: "-8:00",
+          program: "WEB"
         },
         {
           id: 48,
@@ -482,8 +482,8 @@ exports.seed = function(knex) {
           github_id: "3587583458119229",
           first_name: "Stacy",
           last_name: "Gisborne",
-          time_zone: "Asia/Makassar",
-          program: "IOS"
+          time_zone: "-7:00",
+          program: "WEB"
         },
         {
           id: 49,
@@ -492,8 +492,8 @@ exports.seed = function(knex) {
           github_id: "3581677005429879",
           first_name: "Sunshine",
           last_name: "Piffe",
-          time_zone: "Asia/Chongqing",
-          program: "IOS"
+          time_zone: "-9:00",
+          program: "WEB"
         },
         {
           id: 50,
@@ -502,8 +502,8 @@ exports.seed = function(knex) {
           github_id: "50381742228006988",
           first_name: "Arleyne",
           last_name: "Penrice",
-          time_zone: "Africa/Ndjamena",
-          program: "IOS"
+          time_zone: "-10:00",
+          program: "WEB"
         }
       ]);
     });
