@@ -1,5 +1,5 @@
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
 // all handlers/functions. functions have to be declared inside the .yml before declaring them here
 ("use strict");
 // pgsettings connections settings
@@ -139,7 +139,6 @@ exports.projectRoles = async (event, context, callback) => {
 exports.inputStudents = async (event, context, callback) => {
   console.log("Starting inputStudents Function...");
 
-  //grabbing students by their id, program, and timezone from people table in Postgres DB
   const people = await knex("people").select(
     "people.id",
     "people.program",
@@ -154,8 +153,6 @@ exports.inputStudents = async (event, context, callback) => {
 
   const otherStudents = [];
 
-  //mapping over students and pushing them into different arrays based on program track
-  //changing their timezone from a string into a number to allow sorting of timezones
   people.map(person => {
     if (person.program === "WEB") {
       webStudents.push({
@@ -180,10 +177,15 @@ exports.inputStudents = async (event, context, callback) => {
     }
   });
 
-  //sorting the arrays of students by their timezone starting in Europe/Africa
+  //console.log("webbies", webStudents);
+
   webStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
   uxStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
   dataStudents.sort((a, b) => (a.person_timezone < b.person_timezone ? 1 : -1));
+
+  console.log("webbbbbbiieess", webStudents);
+  // console.log("uxxx", uxStudents);
+  // console.log("dataaa", dataStudents);
 
   let projectroles = await knex("project_roles");
 
@@ -192,7 +194,6 @@ exports.inputStudents = async (event, context, callback) => {
   let totalUX = 0;
   let totalOther = 0;
 
-  //mapping through project roles table and assigning students a role id based on their track
   projectroles.map(projects => {
     if (projects.role_id == 5) {
       projects.person_id = webStudents[totalWeb].person_id;
@@ -213,7 +214,6 @@ exports.inputStudents = async (event, context, callback) => {
     }
   });
 
-  //inserting students into projects based on their role id in descending timezone order
   projectroles.map(async (p, i) => {
     await knex("project_roles")
       .where("id", p.id)
@@ -224,7 +224,6 @@ exports.inputStudents = async (event, context, callback) => {
   });
 
   console.log("DONE WITH ALL INSERTIONS");
-  //calling the updated project roles table
   try {
     const allProjects = await knex("project_roles");
     knex.client.destroy();
