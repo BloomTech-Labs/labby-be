@@ -37,6 +37,12 @@
               "LogGroupName": "/aws/lambda/sorting-dev-getAllProjects"
             }
           },
+          "PostProjectLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sorting-dev-postProject"
+            }
+          },
           "GetAllPeopleLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
@@ -74,7 +80,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-getAllProjects",
               "Handler": "handler.getAllProjects",
@@ -87,14 +93,44 @@
               "GetAllProjectsLogGroup"
             ]
           },
-          "GetAllProjectsLambdaVersionS0zl5MqRetvmQTZOEc5vVjbHXD366QhBFDDvOdn4c": {
+          "GetAllProjectsLambdaVersionXHNTJ9WswvDehlid01K8Znj3UcwxHWMtjGZIyTIbJk4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAllProjectsLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
+            }
+          },
+          "PostProjectLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
+              },
+              "FunctionName": "sorting-dev-postProject",
+              "Handler": "handler.postProject",
+              "MemorySize": 1024,
+              "Role": "arn:aws:iam::235233969742:role/service-role/Lambda-ExecutionRole-Student",
+              "Runtime": "nodejs10.x",
+              "Timeout": 6
+            },
+            "DependsOn": [
+              "PostProjectLogGroup"
+            ]
+          },
+          "PostProjectLambdaVersionalPWDdBvPVOYhs8ZqqG9mFo93Umnpi7fX8hBBQudLU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PostProjectLambdaFunction"
+              },
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "GetAllPeopleLambdaFunction": {
@@ -104,7 +140,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-getAllPeople",
               "Handler": "handler.getAllPeople",
@@ -117,14 +153,14 @@
               "GetAllPeopleLogGroup"
             ]
           },
-          "GetAllPeopleLambdaVersionLOweAfIPHL3pC7QaaDefXX1coIFgtKWTHcsdf5eNh8g": {
+          "GetAllPeopleLambdaVersionpwh112dm1c7vX5dYnqrIj5biadhlPQIrdAmMJ6LP8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAllPeopleLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "GetRolesLambdaFunction": {
@@ -134,7 +170,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-getRoles",
               "Handler": "handler.getRoles",
@@ -147,14 +183,14 @@
               "GetRolesLogGroup"
             ]
           },
-          "GetRolesLambdaVersion3Ru7mz8fkHEzVILKLuVcbkMPv3A5HWRDVj8fv8ZkkA": {
+          "GetRolesLambdaVersion54YJnzHdB1zYOYbvU3PRm5kugxWgajS6yLKaqttbgc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetRolesLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "PopulatePeopleLambdaFunction": {
@@ -164,7 +200,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-populatePeople",
               "Handler": "handler.populatePeople",
@@ -177,14 +213,14 @@
               "PopulatePeopleLogGroup"
             ]
           },
-          "PopulatePeopleLambdaVersionsKnTsqL0483mmx8fsi1dChBtPvOQLHvhsPCBDVhVb4": {
+          "PopulatePeopleLambdaVersionOeD3J2DHkuvM6uKfhZVh3V9aGDLr5CXgx4zaCw99nqs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PopulatePeopleLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "ProjectRolesLambdaFunction": {
@@ -194,7 +230,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-projectRoles",
               "Handler": "handler.projectRoles",
@@ -207,14 +243,14 @@
               "ProjectRolesLogGroup"
             ]
           },
-          "ProjectRolesLambdaVersion45iWHrpchBVY9SdJl9QRqjaiL4DJWizGswtvZLrUuY": {
+          "ProjectRolesLambdaVersion7r15nqX3PmsaaEbVYYyxxdtHYzpoaiKoX509bzezPfU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ProjectRolesLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "InputStudentsLambdaFunction": {
@@ -224,7 +260,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z/sorting.zip"
+                "S3Key": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z/sorting.zip"
               },
               "FunctionName": "sorting-dev-inputStudents",
               "Handler": "handler.inputStudents",
@@ -237,14 +273,14 @@
               "InputStudentsLogGroup"
             ]
           },
-          "InputStudentsLambdaVersionqcNnNf8nSkWitHmSwFZ95fGzsLLjPgK0SMUtAi3aGtY": {
+          "InputStudentsLambdaVersion6EcotXuPJ4fKRFLOZZZK1PyLdJAkITwNANjGBFuQUs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "InputStudentsLambdaFunction"
               },
-              "CodeSha256": "JHoLV3z749nbaXSADtCDVZiENlpoRitI2k14lodCKBA="
+              "CodeSha256": "wjJJ+AWyHDdK1zN5CZZjP66n10nzqwhRu16JZPg4yGk="
             }
           },
           "ApiGatewayRestApi": {
@@ -268,6 +304,33 @@
                 ]
               },
               "PathPart": "getallprojects",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceProjects": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "projects",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceProjectsCreate": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceProjects"
+              },
+              "PathPart": "create",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -380,6 +443,49 @@
                       {
                         "Fn::GetAtt": [
                           "GetAllProjectsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodProjectsCreatePost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceProjectsCreate"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PostProjectLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -606,7 +712,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1571419115816": {
+          "ApiGatewayDeployment1571074248465": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -616,6 +722,7 @@
             },
             "DependsOn": [
               "ApiGatewayMethodGetallprojectsGet",
+              "ApiGatewayMethodProjectsCreatePost",
               "ApiGatewayMethodPeopleGet",
               "ApiGatewayMethodRolesGet",
               "ApiGatewayMethodPopulatepeopleGet",
@@ -629,6 +736,43 @@
               "FunctionName": {
                 "Fn::GetAtt": [
                   "GetAllProjectsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "PostProjectLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PostProjectLambdaFunction",
                   "Arn"
                 ]
               },
@@ -855,37 +999,43 @@
           "GetAllProjectsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAllProjectsLambdaVersionS0zl5MqRetvmQTZOEc5vVjbHXD366QhBFDDvOdn4c"
+              "Ref": "GetAllProjectsLambdaVersionXHNTJ9WswvDehlid01K8Znj3UcwxHWMtjGZIyTIbJk4"
+            }
+          },
+          "PostProjectLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PostProjectLambdaVersionalPWDdBvPVOYhs8ZqqG9mFo93Umnpi7fX8hBBQudLU"
             }
           },
           "GetAllPeopleLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAllPeopleLambdaVersionLOweAfIPHL3pC7QaaDefXX1coIFgtKWTHcsdf5eNh8g"
+              "Ref": "GetAllPeopleLambdaVersionpwh112dm1c7vX5dYnqrIj5biadhlPQIrdAmMJ6LP8"
             }
           },
           "GetRolesLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetRolesLambdaVersion3Ru7mz8fkHEzVILKLuVcbkMPv3A5HWRDVj8fv8ZkkA"
+              "Ref": "GetRolesLambdaVersion54YJnzHdB1zYOYbvU3PRm5kugxWgajS6yLKaqttbgc"
             }
           },
           "PopulatePeopleLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PopulatePeopleLambdaVersionsKnTsqL0483mmx8fsi1dChBtPvOQLHvhsPCBDVhVb4"
+              "Ref": "PopulatePeopleLambdaVersionOeD3J2DHkuvM6uKfhZVh3V9aGDLr5CXgx4zaCw99nqs"
             }
           },
           "ProjectRolesLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ProjectRolesLambdaVersion45iWHrpchBVY9SdJl9QRqjaiL4DJWizGswtvZLrUuY"
+              "Ref": "ProjectRolesLambdaVersion7r15nqX3PmsaaEbVYYyxxdtHYzpoaiKoX509bzezPfU"
             }
           },
           "InputStudentsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "InputStudentsLambdaVersionqcNnNf8nSkWitHmSwFZ95fGzsLLjPgK0SMUtAi3aGtY"
+              "Ref": "InputStudentsLambdaVersion6EcotXuPJ4fKRFLOZZZK1PyLdJAkITwNANjGBFuQUs"
             }
           },
           "ServiceEndpoint": {
@@ -956,6 +1106,24 @@
           }
         ],
         "name": "sorting-dev-getAllProjects",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs10.x",
+        "vpc": {}
+      },
+      "postProject": {
+        "handler": "handler.postProject",
+        "events": [
+          {
+            "http": {
+              "path": "projects/create",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sorting-dev-postProject",
         "package": {},
         "memory": 1024,
         "timeout": 6,
@@ -1058,7 +1226,7 @@
     "artifact": "/Users/yorkcook/Desktop/labby-be/Sorting/.serverless/sorting.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/sorting/dev/1571419146205-2019-10-18T17:19:06.205Z",
+    "artifactDirectoryName": "serverless/sorting/dev/1571074276899-2019-10-14T17:31:16.899Z",
     "artifact": "sorting.zip"
   }
 }
