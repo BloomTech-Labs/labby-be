@@ -1,0 +1,60 @@
+
+# Name of the service or directory name
+service: labby-lex-valid-fulfill
+
+provider:
+  name: aws
+  runtime: nodejs10.x 
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+      Resource:
+        - "Fn::Join": ["", ["arn:aws:dynamodb:", {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":table/labs-project-preference-table*"]]
+        - "Fn::Join": ["", ["arn:aws:dynamodb:", {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":table/labs-project-user-table*"]]
+
+
+functions:
+  intents:
+    handler: handler.intents
+    events:
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - LabsProjectPreferenceTable
+              - StreamArn
+          batchSize: 1
+          startingPosition: LATEST
+
+resources:
+  Resources:
+    LabsProjectPreferenceTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "selectionId"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "selectionId"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: "labs-project-preference-table"
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+    LabsProjectUserTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "userId"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "userId"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: "labs-project-user-table"
