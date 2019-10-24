@@ -1,0 +1,60 @@
+exports.seed = function(knex) {
+  // Deletes ALL existing entries
+  return knex("people_groups")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("people_groups").insert([
+        { id: 1, name: "Labs 1" },
+        { id: 2, name: "Labs 2" },
+        { id: 3, name: "Labs 3" },
+        { id: 4, name: "Labs 4" },
+        { id: 5, name: "Labs 5" },
+        { id: 6, name: "Labs 6" },
+        { id: 7, name: "Labs 7" },
+        { id: 8, name: "Labs 8" },
+        { id: 9, name: "Labs 9" },
+        { id: 10, name: "Labs 10" },
+        { id: 11, name: "Labs 11" },
+        { id: 12, name: "Labs 12" },
+        { id: 13, name: "Labs 13" },
+        { id: 14, name: "Labs 14" },
+        { id: 15, name: "Labs 15" },
+        { id: 16, name: "Labs 16" },
+        { id: 17, name: "Labs 17" },
+        { id: 18, name: "Labs 18" },
+        { id: 19, name: "Labs 19" },
+        { id: 20, name: "Labs 20" },
+        { id: 21, name: "Labs 21" },
+        { id: 22, name: "Labs 22" },
+        { id: 23, name: "Labs 23" },
+        { id: 24, name: "Labs 24" },
+        { id: 25, name: "Labs 25" },
+        { id: 26, name: "Labs 26" },
+        { id: 27, name: "Labs 27" },
+        { id: 28, name: "Labs 28" },
+        { id: 29, name: "Labs 29" },
+        { id: 30, name: "Labs 30" },
+        { id: 31, name: "Labs 31" },
+        { id: 32, name: "Labs 32" },
+        { id: 33, name: "Labs 33" },
+        { id: 34, name: "Labs 34" },
+        { id: 35, name: "Labs 35" },
+        { id: 36, name: "Labs 36" },
+        { id: 37, name: "Labs 37" },
+        { id: 38, name: "Labs 38" },
+        { id: 39, name: "Labs 39" },
+        { id: 40, name: "Labs 40" },
+        { id: 41, name: "Labs 41" },
+        { id: 42, name: "Labs 42" },
+        { id: 43, name: "Labs 43" },
+        { id: 44, name: "Labs 44" },
+        { id: 45, name: "Labs 45" },
+        { id: 46, name: "Labs 46" },
+        { id: 47, name: "Labs 47" },
+        { id: 48, name: "Labs 48" },
+        { id: 49, name: "Labs 49" },
+        { id: 50, name: "Labs 50" }
+      ]);
+    });
+};

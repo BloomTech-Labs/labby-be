@@ -1,0 +1,25 @@
+{
+  "name": "Sorting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "babel-jest": "^24.9.0",
+    "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "knex": "^0.19.5",
+    "pg": "^7.12.1",
+    "serverless": "^1.54.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "Jest": {
+    "testEnvironment": "node"
+  }
+}

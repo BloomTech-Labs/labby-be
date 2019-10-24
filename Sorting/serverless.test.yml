@@ -1,0 +1,42 @@
+- name: Get all Projects
+  endpoint: {function: getAllProjects}
+  response:
+    statusCode: 200
+
+- name: Get all People
+  endpoint: {function: getAllPeople}
+  response:
+    statusCode: 200
+
+- name: Get Roles
+  endpoint: {function: getRoles}
+  response:
+    statusCode: 200
+
+- name: Post Project
+  endpoint: {function: postProject}
+  response:
+    statusCode: 500
+
+- name: Post Project
+  endpoint: {function: postProject}
+  request: 
+    body: {
+      id: "",
+      product_id: 0,
+      name: "",
+      start: "",
+      end: ""
+    }
+  response:
+    statusCode: 200
+
+- name: Populate People 
+  endpoint: {function: populatePeople}
+  response:
+    statusCode: 200
+
+- name: Populate ProjectRoles
+  endpoint: {function: projectRoles}
+  response:
+    statusCode: 200
