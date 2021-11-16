@@ -9,7 +9,7 @@
   "author": "Doc Jones",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.553.0",
+    "aws-sdk": "^2.814.0",
     "es6-promisify": "^6.0.2",
     "lodash": "^4.17.15",
     "util.promisify": "^1.0.0"
