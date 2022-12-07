@@ -9,7 +9,7 @@
     "jest": "^24.9.0",
     "knex": "^0.19.5",
     "pg": "^7.12.1",
-    "serverless": "^1.54.0",
+    "serverless": "^3.25.1",
     "supertest": "^4.0.2"
   },
   "devDependencies": {},
